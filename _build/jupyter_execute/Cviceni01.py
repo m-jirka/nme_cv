@@ -5,7 +5,7 @@
 
 # <div class="alert alert-block alert-info"><b>Tip: </b> Tento soubor je mozne stahnout ve forme <i>*.ipynb</i> nebo jako <i>*.pdf</i>.</div>
 
-# <div class="alert alert-block alert-success"><b>On-line interaktivni verze: </b> Pro otevreni interaktivni verze kliknete ve vrchnim menu na raketu a zvolte Binder. </div>
+# <div class="alert alert-block alert-success"><b>On-line interaktivni verze: </b> Pro spusteni interaktivni verze kliknete ve vrchnim menu na raketu a zvolte <i>Binder</i>, ve kterem lze JN (Jupyter Notebook) upravovat. Volba <i>Live Code</i> umozni pouze spoustet radky s kodem.</div>
 
 # ## Interaktivni Jupyter notebook
 
