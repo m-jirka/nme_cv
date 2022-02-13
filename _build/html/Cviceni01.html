@@ -251,6 +251,23 @@
      1.2.4. Funkce
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#numericka-knihovna-numpy">
+     1.2.5. Numericka knihovna numpy
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#pole">
+       1.2.5.1. Pole
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id1">
+       1.2.5.2. Funkce
+      </a>
+     </li>
+    </ul>
+   </li>
   </ul>
  </li>
 </ul>
@@ -327,6 +344,23 @@
      1.2.4. Funkce
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#numericka-knihovna-numpy">
+     1.2.5. Numericka knihovna numpy
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#pole">
+       1.2.5.1. Pole
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id1">
+       1.2.5.2. Funkce
+      </a>
+     </li>
+    </ul>
+   </li>
   </ul>
  </li>
 </ul>
@@ -345,12 +379,12 @@
 <p>Napiste <code class="docutils literal notranslate"><span class="pre">print('Hello,</span> <span class="pre">World!')</span></code> a stisknete <code class="docutils literal notranslate"><span class="pre">Shift</span></code> <code class="docutils literal notranslate"><span class="pre">+</span></code> <code class="docutils literal notranslate"><span class="pre">Enter</span></code> (nebo <code class="docutils literal notranslate"><span class="pre">Ctrl</span></code> <code class="docutils literal notranslate"><span class="pre">+</span></code> <code class="docutils literal notranslate"><span class="pre">Enter</span></code>)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;hello world&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hello, World&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>hello world
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello, World
 </pre></div>
 </div>
 </div>
@@ -375,17 +409,17 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># toto je komentar</span>
-
-<span class="sd">&quot;&quot;&quot;V Pythonu nejsou žádné víceřádkové komentáře, které by</span>
-<span class="sd">odpovídaly /* */ z C++ či Javy, nicméně často se místo nich</span>
-<span class="sd">používají víceřádkové řetězce, které se jen nepřiřadí do</span>
-<span class="sd">žádné proměnné a dále nepoužijí. Obvyklé je to zejména u</span>
-<span class="sd">tzv. docstringů (viz dále).&quot;&quot;&quot;</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Komentar</span>
+<span class="sd">na vice</span>
+<span class="sd">radku...</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello, World!&quot;</span><span class="p">)</span> 
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;V Pythonu nejsou žádné víceřádkové komentáře, které by\nodpovídaly /* */ z C++ či Javy, nicméně často se místo nich\npoužívají víceřádkové řetězce, které se jen nepřiřadí do\nžádné proměnné a dále nepoužijí. Obvyklé je to zejména u\ntzv. docstringů (viz dále).&#39;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello, World!
 </pre></div>
 </div>
 </div>
@@ -570,7 +604,6 @@ Tento text se vypise vzdy.
 </div>
 </div>
 </div>
-<p>numpy, pyplot</p>
 </div>
 </div>
 <hr class="docutils" />
@@ -588,6 +621,332 @@ Tento text se vypise vzdy.
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Objem jehlanu =  8.0
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="numericka-knihovna-numpy">
+<h3><span class="section-number">1.2.5. </span>Numericka knihovna numpy<a class="headerlink" href="#numericka-knihovna-numpy" title="Permalink to this headline">¶</a></h3>
+<p>Pro importovani numericke knihovny <code class="docutils literal notranslate"><span class="pre">numpy</span></code> pouzijeme prikaz:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="pole">
+<h4><span class="section-number">1.2.5.1. </span>Pole<a class="headerlink" href="#pole" title="Permalink to this headline">¶</a></h4>
+<p>Pole (vektor, matice) lze vytvaret pomoci funkce <code class="docutils literal notranslate"><span class="pre">array</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># vektor</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+
+<span class="c1"># matice</span>
+<span class="n">matice</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">],[</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-block alert-danger"><b>Pozor:</b> v poli <code>array</code> ma prvni prvek index <b>0</b>!</div><p>Rozmery pole zjisitme pomoci funkce <code class="docutils literal notranslate"><span class="pre">shape</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">matice</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(3,)
+(3, 3)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Funkce <code class="docutils literal notranslate"><span class="pre">size</span></code> vrati pocet prvku v poli:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">matice</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
+9
+</pre></div>
+</div>
+</div>
+</div>
+<p>Pro vytvareni poli lze pouzivat generatory <code class="docutils literal notranslate"><span class="pre">arange</span></code>,<code class="docutils literal notranslate"><span class="pre">linspace</span></code>,<code class="docutils literal notranslate"><span class="pre">logspace</span></code>,<code class="docutils literal notranslate"><span class="pre">ones</span></code>,<code class="docutils literal notranslate"><span class="pre">zeros</span></code>,<code class="docutils literal notranslate"><span class="pre">eye</span></code>,<code class="docutils literal notranslate"><span class="pre">random</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># vytvorime pole od 0 do 10 s krokem 1</span>
+<span class="n">pole</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pole</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0 1 2 3 4 5 6 7 8 9]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># vytovrime pole od 0 do 10 s poctem prvku 20</span>
+<span class="n">pole</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pole</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ 0.          0.52631579  1.05263158  1.57894737  2.10526316  2.63157895
+  3.15789474  3.68421053  4.21052632  4.73684211  5.26315789  5.78947368
+  6.31578947  6.84210526  7.36842105  7.89473684  8.42105263  8.94736842
+  9.47368421 10.        ]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># vytovrime pole od 0 do 10 s poctem prvku 20 v logaritmickem meritku  (log se zakladem 10)</span>
+<span class="n">pole</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="n">base</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pole</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.00000000e+00 3.35981829e+00 1.12883789e+01 3.79269019e+01
+ 1.27427499e+02 4.28133240e+02 1.43844989e+03 4.83293024e+03
+ 1.62377674e+04 5.45559478e+04 1.83298071e+05 6.15848211e+05
+ 2.06913808e+06 6.95192796e+06 2.33572147e+07 7.84759970e+07
+ 2.63665090e+08 8.85866790e+08 2.97635144e+09 1.00000000e+10]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># vytovrime matici 2x2 obsahujici same nuly</span>
+<span class="n">pole</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pole</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0. 0.]
+ [0. 0.]]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># vytovrime matici 3x3 obsahujici same jednicky</span>
+<span class="n">pole</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pole</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1. 1. 1.]
+ [1. 1. 1.]
+ [1. 1. 1.]]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># vytovrime matici 3x3 s jednickami na diagonale, ostatni hodnoty jsou nulove</span>
+<span class="n">pole</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pole</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1. 0. 0.]
+ [0. 1. 0.]
+ [0. 0. 1.]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Pro pristup k prvkum matice pouzivame syntaxi <code class="docutils literal notranslate"><span class="pre">[min:max]</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">matice</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">],[</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">matice</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1 2 3]
+ [4 5 6]
+ [7 8 9]]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">prvni_radek</span> <span class="o">=</span> <span class="n">matice</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">prvni_radek</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1 2 3]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">prvni_sloupec</span> <span class="o">=</span> <span class="n">matice</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">prvni_sloupec</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1 4 7]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Nasobeni matic a vektoru se provadi pomoci operatoru <code class="docutils literal notranslate"><span class="pre">dot</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># matice 2x3</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+<span class="c1"># matice 3x2</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">B</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+<span class="c1"># vysledek</span>
+<span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">C</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1 2 3]
+ [4 5 6]]
+(2, 3)
+[[1 2]
+ [3 4]
+ [5 6]]
+(3, 2)
+[[22 28]
+ [49 64]]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-block alert-danger"><b>Pozor:</b> operace <b>C*C</b> nasobi matice po prvcich (neni to maticove nasobeni)</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># maticove nasobeni</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">C</span><span class="p">,</span><span class="n">C</span><span class="p">))</span>
+
+<span class="c1"># nasobeni po prvcich</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">C</span><span class="o">*</span><span class="n">C</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1856 2408]
+ [4214 5468]]
+[[ 484  784]
+ [2401 4096]]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id1">
+<h4><span class="section-number">1.2.5.2. </span>Funkce<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">numpy</span></code> obsahuje casto pouzivane funkce a konstanty (napr. <code class="docutils literal notranslate"><span class="pre">sqrt</span></code>, <code class="docutils literal notranslate"><span class="pre">log</span></code>, <code class="docutils literal notranslate"><span class="pre">sin</span></code>, <code class="docutils literal notranslate"><span class="pre">abs</span></code>, <code class="docutils literal notranslate"><span class="pre">e</span></code>, <code class="docutils literal notranslate"><span class="pre">pi</span></code>, …):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">e</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.23606797749979
+1.6094379124341003
+-0.9589242746631385
+3
+2.718281828459045
+3.141592653589793
+</pre></div>
+</div>
+</div>
+</div>
+<p>Zjistime soucet prvku (<code class="docutils literal notranslate"><span class="pre">sum</span></code>), maximum (<code class="docutils literal notranslate"><span class="pre">max</span></code>), minimum (<code class="docutils literal notranslate"><span class="pre">min</span></code>), prumernou hodnotou (<code class="docutils literal notranslate"><span class="pre">average</span></code>), smerodatnou odchylku (<code class="docutils literal notranslate"><span class="pre">std</span></code>) a rozptyl (<code class="docutils literal notranslate"><span class="pre">var</span></code>) u matice <code class="docutils literal notranslate"><span class="pre">A</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+
+<span class="n">soucet</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">soucet</span><span class="p">)</span>
+
+<span class="n">maximum</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">maximum</span><span class="p">)</span>
+
+<span class="n">minimum</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">minimum</span><span class="p">)</span>
+
+<span class="n">prumer</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">prumer</span><span class="p">)</span>
+
+<span class="n">smerodatna_odchylka</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">smerodatna_odchylka</span><span class="p">)</span>
+
+<span class="n">rozptyl</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">rozptyl</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1 2 3]
+ [4 5 6]]
+21
+6
+1
+3.5
+1.707825127659933
+2.9166666666666665
+</pre></div>
+</div>
+</div>
+</div>
+<p>Index prvku v matici lze najit pomoci funkce <code class="docutils literal notranslate"><span class="pre">argwhere</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">index_hledaneho_prvku</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argwhere</span><span class="p">(</span><span class="n">A</span> <span class="o">==</span> <span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">index_hledaneho_prvku</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0 2]]
+</pre></div>
+</div>
 </div>
 </div>
 </div>
