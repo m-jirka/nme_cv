@@ -10,16 +10,14 @@
 # 
 # ### Podmínky pro udělění zápočtu
 # * maximálně 3 absence
-# * vypracování zápočtové úlohy a její obhájení nebo průbežně plnění úkolů a jejich odevzdání do začátku následujícího cvičení (používejte python nebo Matlab)
+# * vypracování zápočtové úlohy a její obhájení nebo průbežně plnění úkolů a jejich odevzdání do začátku následujícího cvičení (používejte Python nebo Matlab)
 # 
 # ### Používané nástroje
-# Na cvičeních budeme používat *python* v prostředí *Jupyter notebook*. Pro práci na PC je nejjednodušší používat prostředí [Anaconda](https://www.anaconda.com/) (dostupné pro Windows/Mac/Linux).
+# Na cvičeních budeme používat Python v on-line prostředí [Jupyter notebook](https://jupyter.org/). Pro vypracování úkolů je třeba si Python prostředí nainstalovat. Pro off-line práci s Jupyter notebook na počítači je nejjednodušší používat programový balík [Anaconda](https://www.anaconda.com/) (dostupné pro Windows/Mac/Linux), který obsahuje všechny potřebné knihovny (a navíc Python editor [spyder](https://www.spyder-ide.org/) a mnoho dalšího).
 # 1. [Návod na instalaci](https://docs.anaconda.com/anaconda/install/)
-# 2. [Návod na spuštení](https://docs.anaconda.com/anaconda/user-guide/getting-started/)
+# 2. [Návod na spuštení Jupyter notebook](https://docs.anaconda.com/anaconda/user-guide/getting-started/)
 # 
-# Pro on-line spouštení `*.ipynb` *Jupyter nootebok* souborů lze využít [MyBinder](https://mybinder.org/).
-# 
-# Materiály ke cvičení vycházejí z těchto [podkladů](http://kfe.fjfi.cvut.cz/~vachal/edu/nme/cviceni/index.html).
+# Materiály ke cvičením vycházejí z těchto [podkladů](http://kfe.fjfi.cvut.cz/~vachal/edu/nme/cviceni/index.html).
 
 # In[ ]:
 
