@@ -47,14 +47,14 @@
     <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="1. Základy práce v pythonu" href="Cviceni01.html" />
+    <link rel="next" title="1. Jupyter notebook a základy Pythonu" href="Cviceni01.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -106,7 +106,7 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="Cviceni01.html">
-   1. Základy práce v pythonu
+   1. Jupyter notebook a základy Pythonu
   </a>
  </li>
 </ul>
@@ -161,6 +161,22 @@
 
             <!-- Source interaction buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fintro.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
             <!-- Full screen (wrap in <a> to have style consistency -->
 
 <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
@@ -175,7 +191,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/m-jirka/nme_cv/main?urlpath=tree/intro.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/intro.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="_static/images/logo_binder.svg"
@@ -183,6 +199,9 @@
         
         
         
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
         
     </div>
 </div>
@@ -286,18 +305,17 @@
 <h3>Podmínky pro udělění zápočtu<a class="headerlink" href="#podminky-pro-udeleni-zapoctu" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>maximálně 3 absence</p></li>
-<li><p>vypracování zápočtové úlohy a její obhájení nebo průbežně plnění úkolů a jejich odevzdání do začátku následujícího cvičení (používejte python nebo Matlab)</p></li>
+<li><p>vypracování zápočtové úlohy a její obhájení nebo průbežně plnění úkolů a jejich odevzdání do začátku následujícího cvičení (používejte Python nebo Matlab)</p></li>
 </ul>
 </div>
 <div class="section" id="pouzivane-nastroje">
 <h3>Používané nástroje<a class="headerlink" href="#pouzivane-nastroje" title="Permalink to this headline">¶</a></h3>
-<p>Na cvičeních budeme používat <em>python</em> v prostředí <em>Jupyter notebook</em>. Pro práci na PC je nejjednodušší používat prostředí <a class="reference external" href="https://www.anaconda.com/">Anaconda</a> (dostupné pro Windows/Mac/Linux).</p>
+<p>Na cvičeních budeme používat Python v on-line prostředí <a class="reference external" href="https://jupyter.org/">Jupyter notebook</a>. Pro vypracování úkolů je třeba si Python prostředí nainstalovat. Pro off-line práci s Jupyter notebook na počítači je nejjednodušší používat programový balík <a class="reference external" href="https://www.anaconda.com/">Anaconda</a> (dostupné pro Windows/Mac/Linux), který obsahuje všechny potřebné knihovny (a navíc Python editor <a class="reference external" href="https://www.spyder-ide.org/">spyder</a> a mnoho dalšího).</p>
 <ol class="simple">
 <li><p><a class="reference external" href="https://docs.anaconda.com/anaconda/install/">Návod na instalaci</a></p></li>
-<li><p><a class="reference external" href="https://docs.anaconda.com/anaconda/user-guide/getting-started/">Návod na spuštení</a></p></li>
+<li><p><a class="reference external" href="https://docs.anaconda.com/anaconda/user-guide/getting-started/">Návod na spuštení Jupyter notebook</a></p></li>
 </ol>
-<p>Pro on-line spouštení <code class="docutils literal notranslate"><span class="pre">*.ipynb</span></code> <em>Jupyter nootebok</em> souborů lze využít <a class="reference external" href="https://mybinder.org/">MyBinder</a>.</p>
-<p>Materiály ke cvičení vycházejí z těchto <a class="reference external" href="http://kfe.fjfi.cvut.cz/~vachal/edu/nme/cviceni/index.html">podkladů</a>.</p>
+<p>Materiály ke cvičením vycházejí z těchto <a class="reference external" href="http://kfe.fjfi.cvut.cz/~vachal/edu/nme/cviceni/index.html">podkladů</a>.</p>
 </div>
 </div>
 <div class="toctree-wrapper compound">
@@ -308,7 +326,7 @@
     {
         requestKernel: true,
         binderOptions: {
-            repo: "binder-examples/jupyter-stacks-datascience",
+            repo: "executablebooks/jupyter-book",
             ref: "master",
         },
         codeMirrorConfig: {
@@ -332,7 +350,7 @@
     <a class='right-next' id="next-link" href="Cviceni01.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">1. </span>Základy práce v pythonu</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>Jupyter notebook a základy Pythonu</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
