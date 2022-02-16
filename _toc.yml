@@ -9,3 +9,7 @@ parts:
   chapters:
   - file: Cviceni01
 
+- caption: Úkoly
+  numbered: true
+  chapters:
+  - file: Ukol01
