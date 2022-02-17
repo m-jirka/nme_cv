@@ -17,4 +17,6 @@
 # 1. [Návod na instalaci](https://docs.anaconda.com/anaconda/install/)
 # 2. [Návod na spuštení Jupyter notebook](https://docs.anaconda.com/anaconda/user-guide/getting-started/)
 # 
+# **S případnými dotazy na instalaci a spuštění Jupyter Notebooku mě kontaktujte na mailu.**
+# 
 # Materiály ke cvičením vycházejí z těchto [podkladů](http://kfe.fjfi.cvut.cz/~vachal/edu/nme/cviceni/index.html).
