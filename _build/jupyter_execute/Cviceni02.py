@@ -45,6 +45,21 @@ import matplotlib.pyplot as plt
 
 
 # kod
+cislo = 1.0           # Absolutni hodnota epsilon je ruzna pro ruzna cisla
+eps   = 0.1 * cislo # Pocatecni odhad epsilon
+# Zmensujeme eps, dokud po jeho pricteni ke vstupnimu cislu dostavame vetsi cislo
+# Odhad bude presny v ramci jednoho radu (ve dvojkove soustave, tj. muze se 2x lisit)
+while ( cislo+eps > cislo ):
+    eps = eps / 2  # Pro nasledujici iteraci vyzkousime polovicni eps
+
+#Posledni iterace jiz hodnotu nezmenila, potrebujeme hodnotu z predposledni
+# iterace - ta je rovna dvojnasobku aktualni hodnoty eps.
+eps = 2 * eps
+
+print('Odhad strojoveho epsilon je: ',eps)
+
+#  Knihovna nupmy ma definovane skutecne hodnoty strojoveho epsilon.
+print('Skutecna hodnota epsilon je: ',np.finfo(float).eps)
 
 
 # #### Šíření chyb ve výpočtech
@@ -69,6 +84,21 @@ print(c)
 
 
 # kod
+def pricist_a_odecist(n):
+    vysledek = 1.0
+    
+    for i in range(n):
+        vysledek += 1/3
+
+    for i in range(n):
+        vysledek -= 1/3
+        
+    return vysledek
+
+#1x
+print(1+1/3-1/3)
+# 100x
+pricist_a_odecist(100)
 
 
 #  * V počítači nemusí platit asociativnost sčítání $(a+b)+c = a+(b+c)$.
@@ -79,6 +109,28 @@ print(c)
 
 
 # kod
+# Vrati i-ty prvek rady
+def rada(i):
+    return np.exp(-np.log(1.1)*i)
+
+# Secte radu vzestupne od 0 do n
+def soucet_vzestupne(n):
+    soucet = 0   # Nezapominejte na inicializaci hodnoty promenne
+    for i in range(n+1):
+        soucet = soucet + rada(i)
+    return soucet
+
+
+# Secte radu sestupne od n do 0
+def soucet_sestupne(n):
+    soucet = 0
+    for i in reversed(range(n+1)): #range(n,-1,-1):
+        soucet = soucet + rada(i)
+    return soucet
+
+n = 30
+print(soucet_vzestupne(n))
+print(soucet_sestupne(n))
 
 
 # ### Chyba metody
@@ -116,20 +168,11 @@ def f(x):
 def df(x):
     return np.cos(x)
 
-#######################################
-# vlozte funkci pocitajici doprednou diferenci:
-#######################################
-def num1_df(x,h):
-    return 0
-#######################################
+def num1_df(x, h):
+    return (f(x+h) - f(x))/h
 
-
-#######################################
-# vlozte funkci pocitajici centralni diferenci:
-#######################################
-def num2_df(x,h):
-    return 0
-#######################################
+def num2_df(x, h):
+    return (f(x+h) - f(x-h))/(2*h)
 
 x = np.pi/6
 h = x  # Pocatecni hodnota h
@@ -176,7 +219,7 @@ fig.tight_layout()
 
 # * **a) Eulerova metoda (dopředná diference)**
 #  * derivaci nahradíme konečnou diferencí: $\dfrac{v(t+dt)-v(t)}{dt}=-v(t)$
-#  * odtud získám rychlost $v$ v čase $t+dt$: $v(d+dt)=-v(t)dt+v(t)$ 
+#  * odtud získám rychlost $v$ v čase $t+dt$: $v(t+dt)=-v(t)dt+v(t)$ 
 
 # In[7]:
 
@@ -198,14 +241,10 @@ v_exact[0] = np.exp(-t[0])
 
 #% diferencni schema v(t+dt)-v(t)/dt = -v(t)
 for i in range (1,N):
-#######################################
-    # vlozte vypocet t, v, v_exact:
-#######################################
-    t[i]=0
-    v[i]=0    
-    v_exact[i]=0
-#######################################
-    
+    t[i] = t[i-1] + dt
+    v[i] = -v[i-1]*dt + v[i-1]
+    v_exact[i] = np.exp(-t[i])
+
 fig, ax = plt.subplots(figsize=(10,5))    
 ax.plot(t,v_exact,label='Analyticke reseni',linewidth=2)
 ax.scatter(t,v,label='Eulerova metoda',color='C1')
@@ -216,7 +255,7 @@ ax.legend()
 
 # * **b) Dvoukroková metoda (centrální diference)**
 #  * derivaci nahradíme centrální diferencí s dvojnásobným krokem: $\dfrac{v(t+dt)-v(t-dt)}{2dt}=-v(t)$
-#  * odtud získám rychlost $v$ v čase $t+dt$: $v(d+dt)=-2v(t)dt+v(t-dt)$ 
+#  * odtud získám rychlost $v$ v čase $t+dt$: $v(t+dt)=-2v(t)dt+v(t-dt)$ 
 
 # In[8]:
 
@@ -245,13 +284,10 @@ v[1] = v_exact[1]
 
 # diferencni schema v(t+dt)-v(t-dt)/2dt = -v(t)
 for i in range (2,N):
-#######################################
-    # vlozte vypocet t, v, v_exact:
-#######################################
-    t[i]=0
-    v[i]=0    
-    v_exact[i]=0
-#######################################
+    t[i] = t[i-1] + dt
+    v[i] = -2*v[i-1]*dt + v[i-2] 
+    v_exact[i] = np.exp(-t[i])
+
     
 fig, ax = plt.subplots(figsize=(10,5))    
 ax.plot(t,v_exact,label='Analyticke reseni',linewidth=2)
