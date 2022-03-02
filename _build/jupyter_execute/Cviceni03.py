@@ -37,16 +37,20 @@ B = np.array([
 
 # ## Přímé metody pro řešení lineárních rovnic $\mathbb{A}\mathbf{x}=\mathbf{b}$
 # 1. Gaussova metoda
-# 2. Gass-Jordanova metoda
+# 2. Gauss-Jordanova metoda
 # 3. LU dekompozice
 
 # ### Gaussova metoda
 
-#  * Matici $\mathbb{A}$ převedeme na horní trojúhelníkovou matici (dopředný běh).
-#  * Při převodou hraje roli výběr hlavního prvku $a_{11}$ (pivotu) matice $\mathbb{A}$ (v důsledku omezené přesnosti čísel v počítači)
+# * **Přímý běh:** matici $\mathbb{A}$ převedeme na trojúhleníkový tvar.
+# * **Zpětný běh:** vypočítáme složky vektoru $\mathbf{x}$.
+
+# #### Řešení soustav s trojúhelníkovou maticí
+
+#  * Při převodou matice $\mathbb{A}$ na trojúhelníkový tvar hraje roli výběr hlavního prvku $a_{11}$ (pivotu) matice $\mathbb{A}$ (v důsledku omezené přesnosti čísel v počítači)
 #   * Příklad na [pivoting](http://kfe.fjfi.cvut.cz/~vachal/edu/nme/cviceni/02_linalg/DOCS/priklad_pivoting.pdf)
-#  * Následuje zpětný běh, ve kterém vypočítáme složky vektoru $\mathbf{x}$:
-# $x_{i}=\dfrac{b_{i}-\sum_{j=i+1}^{n-1}a_{ij}x_{j}}{a_{ii}}$ kde $i= n-1, n-2,..., 0$
+#  * Následuje zpětný běh, ve kterém vypočítáme složky vektoru $\mathbf{x}$ ve směru klesajícího indexu $i$:
+# $x_{i}=\dfrac{b_{i}-\sum_{j=i+1}^{n}a_{ij}x_{j}}{a_{ii}}$ kde $i= n-1, n-2,..., 0$
 
 # <div class="alert alert-block alert-warning"><b>Cvičení 03.02: </b> Vyřeště soustavu lineární rovnic s horní trojúhlenikovou maticí.</div>
 
@@ -73,6 +77,7 @@ x = np.zeros((3,1)) # neznamy vektor
 #  * $\mathbb{L}$ - matice v dolním trojúhelníkovém tvaru, na hlavní diagonále má jedničky
 #  * $\mathbb{U}$ - matice v horním trojúhelníkovém tvaru, na hlavní diagonále má nenulové prvky
 # * [Poznámky](http://kfe.fjfi.cvut.cz/~vachal/edu/nme/cviceni/02_linalg/DOCS/teorie_LU_dekompozice.pdf) k LU rozkladu
+# * Ukážeme si implementaci [Croutova algoritmu](http://kfe.fjfi.cvut.cz/~limpouch/numet/02-linalg-CZ.pdf)
 
 # <div class="alert alert-block alert-warning"><b>Cvičení 03.03: </b> Příklad na $\mathbb{L}\mathbb{U}$ dekompozici matice $\mathbb{A}$.</div>
 
@@ -105,12 +110,12 @@ print('Matice U = ',U)
 
 # ## Speciální typy matic
 
-# ### Jacobiho matice (třídiagonální)
+# ### Tridiagonální matice
 
 # * Matice s kladnými prvky na hlavní a první pod- a naddiagonále. 
-# * Ukážeme si implementaci [algoritmu](https://en.wikipedia.org/wiki/Tridiagonal_matrix_algorithm) řešení soustavy lineárních rovnic s třídiagonální maticí.
+# * Ukážeme si implementaci [algoritmu](http://kfe.fjfi.cvut.cz/~limpouch/numet/02-linalg-CZ.pdf) řešení soustavy lineárních rovnic s tridiagonální maticí.
 
-# <div class="alert alert-block alert-warning"><b>Cvičení 03.04: </b> Řešení soustavy lineárních rovnic s třidiagonální maticí.</div>
+# <div class="alert alert-block alert-warning"><b>Cvičení 03.04: </b> Řešení soustavy lineárních rovnic s tridiagonální maticí.</div>
 
 # In[5]:
 
