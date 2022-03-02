@@ -229,6 +229,13 @@
     <a class="reference internal nav-link" href="#gaussova-metoda">
      3.2.1. Gaussova metoda
     </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#reseni-soustav-s-trojuhelnikovou-matici">
+       3.2.1.1. Řešení soustav s trojúhelníkovou maticí
+      </a>
+     </li>
+    </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#gauss-jordanova-metoda">
@@ -248,8 +255,8 @@
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#jacobiho-matice-tridiagonalni">
-     3.3.1. Jacobiho matice (třídiagonální)
+    <a class="reference internal nav-link" href="#tridiagonalni-matice">
+     3.3.1. Tridiagonální matice
     </a>
    </li>
   </ul>
@@ -291,6 +298,13 @@
     <a class="reference internal nav-link" href="#gaussova-metoda">
      3.2.1. Gaussova metoda
     </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#reseni-soustav-s-trojuhelnikovou-matici">
+       3.2.1.1. Řešení soustav s trojúhelníkovou maticí
+      </a>
+     </li>
+    </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#gauss-jordanova-metoda">
@@ -310,8 +324,8 @@
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#jacobiho-matice-tridiagonalni">
-     3.3.1. Jacobiho matice (třídiagonální)
+    <a class="reference internal nav-link" href="#tridiagonalni-matice">
+     3.3.1. Tridiagonální matice
     </a>
    </li>
   </ul>
@@ -363,17 +377,22 @@
 <h2><span class="section-number">3.2. </span>Přímé metody pro řešení lineárních rovnic <span class="math notranslate nohighlight">\(\mathbb{A}\mathbf{x}=\mathbf{b}\)</span><a class="headerlink" href="#prime-metody-pro-reseni-linearnich-rovnic-mathbb-a-mathbf-x-mathbf-b" title="Permalink to this headline">¶</a></h2>
 <ol class="simple">
 <li><p>Gaussova metoda</p></li>
-<li><p>Gass-Jordanova metoda</p></li>
+<li><p>Gauss-Jordanova metoda</p></li>
 <li><p>LU dekompozice</p></li>
 </ol>
 <div class="section" id="gaussova-metoda">
 <h3><span class="section-number">3.2.1. </span>Gaussova metoda<a class="headerlink" href="#gaussova-metoda" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li><p>Matici <span class="math notranslate nohighlight">\(\mathbb{A}\)</span> převedeme na horní trojúhelníkovou matici (dopředný běh).</p></li>
-<li><p>Při převodou hraje roli výběr hlavního prvku <span class="math notranslate nohighlight">\(a_{11}\)</span> (pivotu) matice <span class="math notranslate nohighlight">\(\mathbb{A}\)</span> (v důsledku omezené přesnosti čísel v počítači)</p></li>
+<li><p><strong>Přímý běh:</strong> matici <span class="math notranslate nohighlight">\(\mathbb{A}\)</span> převedeme na trojúhleníkový tvar.</p></li>
+<li><p><strong>Zpětný běh:</strong> vypočítáme složky vektoru <span class="math notranslate nohighlight">\(\mathbf{x}\)</span>.</p></li>
+</ul>
+<div class="section" id="reseni-soustav-s-trojuhelnikovou-matici">
+<h4><span class="section-number">3.2.1.1. </span>Řešení soustav s trojúhelníkovou maticí<a class="headerlink" href="#reseni-soustav-s-trojuhelnikovou-matici" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Při převodou matice <span class="math notranslate nohighlight">\(\mathbb{A}\)</span> na trojúhelníkový tvar hraje roli výběr hlavního prvku <span class="math notranslate nohighlight">\(a_{11}\)</span> (pivotu) matice <span class="math notranslate nohighlight">\(\mathbb{A}\)</span> (v důsledku omezené přesnosti čísel v počítači)</p></li>
 <li><p>Příklad na <a class="reference external" href="http://kfe.fjfi.cvut.cz/~vachal/edu/nme/cviceni/02_linalg/DOCS/priklad_pivoting.pdf">pivoting</a></p></li>
-<li><p>Následuje zpětný běh, ve kterém vypočítáme složky vektoru <span class="math notranslate nohighlight">\(\mathbf{x}\)</span>:
-<span class="math notranslate nohighlight">\(x_{i}=\dfrac{b_{i}-\sum_{j=i+1}^{n-1}a_{ij}x_{j}}{a_{ii}}\)</span> kde <span class="math notranslate nohighlight">\(i= n-1, n-2,..., 0\)</span></p></li>
+<li><p>Následuje zpětný běh, ve kterém vypočítáme složky vektoru <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> ve směru klesajícího indexu <span class="math notranslate nohighlight">\(i\)</span>:
+<span class="math notranslate nohighlight">\(x_{i}=\dfrac{b_{i}-\sum_{j=i+1}^{n}a_{ij}x_{j}}{a_{ii}}\)</span> kde <span class="math notranslate nohighlight">\(i= n-1, n-2,..., 0\)</span></p></li>
 </ul>
 <div class="alert alert-block alert-warning"><b>Cvičení 03.02: </b> Vyřeště soustavu lineární rovnic s horní trojúhlenikovou maticí.</div><div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -384,6 +403,7 @@
 <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">141</span><span class="p">,</span><span class="o">-</span><span class="mi">123</span><span class="p">,</span><span class="mi">312</span><span class="p">]])</span><span class="o">.</span><span class="n">T</span> <span class="c1"># vektor b</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span> <span class="c1"># neznamy vektor</span>
 </pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -403,6 +423,7 @@
 <li><p><span class="math notranslate nohighlight">\(\mathbb{L}\)</span> - matice v dolním trojúhelníkovém tvaru, na hlavní diagonále má jedničky</p></li>
 <li><p><span class="math notranslate nohighlight">\(\mathbb{U}\)</span> - matice v horním trojúhelníkovém tvaru, na hlavní diagonále má nenulové prvky</p></li>
 <li><p><a class="reference external" href="http://kfe.fjfi.cvut.cz/~vachal/edu/nme/cviceni/02_linalg/DOCS/teorie_LU_dekompozice.pdf">Poznámky</a> k LU rozkladu</p></li>
+<li><p>Ukážeme si implementaci <a class="reference external" href="http://kfe.fjfi.cvut.cz/~limpouch/numet/02-linalg-CZ.pdf">Croutova algoritmu</a></p></li>
 </ul>
 <div class="alert alert-block alert-warning"><b>Cvičení 03.03: </b> Příklad na $\mathbb{L}\mathbb{U}$ dekompozici matice $\mathbb{A}$.</div><div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -444,13 +465,13 @@ Matice U =  [[ 4.   3. ]
 </div>
 <div class="section" id="specialni-typy-matic">
 <h2><span class="section-number">3.3. </span>Speciální typy matic<a class="headerlink" href="#specialni-typy-matic" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="jacobiho-matice-tridiagonalni">
-<h3><span class="section-number">3.3.1. </span>Jacobiho matice (třídiagonální)<a class="headerlink" href="#jacobiho-matice-tridiagonalni" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="tridiagonalni-matice">
+<h3><span class="section-number">3.3.1. </span>Tridiagonální matice<a class="headerlink" href="#tridiagonalni-matice" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Matice s kladnými prvky na hlavní a první pod- a naddiagonále.</p></li>
-<li><p>Ukážeme si implementaci <a class="reference external" href="https://en.wikipedia.org/wiki/Tridiagonal_matrix_algorithm">algoritmu</a> řešení soustavy lineárních rovnic s třídiagonální maticí.</p></li>
+<li><p>Ukážeme si implementaci <a class="reference external" href="http://kfe.fjfi.cvut.cz/~limpouch/numet/02-linalg-CZ.pdf">algoritmu</a> řešení soustavy lineárních rovnic s tridiagonální maticí.</p></li>
 </ul>
-<div class="alert alert-block alert-warning"><b>Cvičení 03.04: </b> Řešení soustavy lineárních rovnic s třidiagonální maticí.</div><div class="cell docutils container">
+<div class="alert alert-block alert-warning"><b>Cvičení 03.04: </b> Řešení soustavy lineárních rovnic s tridiagonální maticí.</div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
 <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
