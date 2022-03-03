@@ -18,7 +18,6 @@ import numpy as np
 # In[2]:
 
 
-#
 A = np.array([
 [0, -3.7, 0, 0],
 [1, 2, 3, 4.5],
@@ -33,6 +32,19 @@ B = np.array([
 [5, 4, 3, 2, 0],
 [1, 2, 3, 2, -4]
 ])
+
+pocet_radku = A.shape[0]
+pocet_sloupcu = B.shape[1]
+C = np.zeros((pocet_radku,pocet_sloupcu))
+
+for i in range(pocet_radku):          #zvolim i-ty radek matice A
+    for j in range(pocet_sloupcu):    # a j-ty sloupec matice B
+        for k in range(A.shape[1]):   # projdu zaroven cely i-ty radek A a j-ty sloupec B
+            C[i,j] = C[i,j] + A[i,k]*B[k,j] # poscitam vynasobene hodnoty a ulozim je do prvku C[i,j]           
+print(C)
+
+C_kontrola = np.dot(A,B)
+print(C_kontrola)
 
 
 # ## Přímé metody pro řešení lineárních rovnic $\mathbb{A}\mathbf{x}=\mathbf{b}$
@@ -50,9 +62,9 @@ B = np.array([
 #  * Při převodou matice $\mathbb{A}$ na trojúhelníkový tvar hraje roli výběr hlavního prvku $a_{11}$ (pivotu) matice $\mathbb{A}$ (v důsledku omezené přesnosti čísel v počítači)
 #   * Příklad na [pivoting](http://kfe.fjfi.cvut.cz/~vachal/edu/nme/cviceni/02_linalg/DOCS/priklad_pivoting.pdf)
 #  * Následuje zpětný běh, ve kterém vypočítáme složky vektoru $\mathbf{x}$ ve směru klesajícího indexu $i$:
-# $x_{i}=\dfrac{b_{i}-\sum_{j=i+1}^{n}a_{ij}x_{j}}{a_{ii}}$ kde $i= n-1, n-2,..., 0$
+# $x_{i}=\dfrac{b_{i}-\sum_{j=i+1}^{n-1}a_{ij}x_{j}}{a_{ii}}$ kde $i= n-1, n-2,..., 0$
 
-# <div class="alert alert-block alert-warning"><b>Cvičení 03.02: </b> Vyřeště soustavu lineární rovnic s horní trojúhlenikovou maticí.</div>
+# <div class="alert alert-block alert-warning"><b>Cvičení 03.02: </b> Vyřeště soustavu lineárních  rovnic s horní trojúhlenikovou maticí.</div>
 
 # In[3]:
 
@@ -62,7 +74,19 @@ B = np.array([
 
 A = np.array([[6,9,21],[0,21,-57],[0,0,78]]) # matice v hornim trojuhelnikovem tvaru
 b = np.array([[141,-123,312]]).T # vektor b
+
 x = np.zeros((3,1)) # neznamy vektor
+n = x.size
+for i in range(n-1,-1,-1):
+    soucet = 0
+    for j in range(i+1,n,1):
+        soucet = soucet+x[j]*A[i,j]
+    x[i] = (b[i]-soucet)/A[i,i]
+
+print('Nami vypocitany vektor x = ' , x)
+
+x_kontrola = np.linalg.solve(A,b)
+print('Kontrola: x = ',x_kontrola)
 
 
 # ### Gauss-Jordanova metoda
@@ -85,21 +109,16 @@ x = np.zeros((3,1)) # neznamy vektor
 
 
 #
-#A = np.array([
-#[1,2,4],
-#[3,8,14],
-#[2,6,13]
-#])
-
+# matice A
 A = np.array([
 [4,3],
 [6,3],
 ])
 
 
-n = A.shape[0]
-U = np.zeros((n, n))
-L = np.eye(n)
+n = A.shape[0] # pocet radku matice A
+U = np.zeros((n, n)) # nulova matice, ze ktere postupne vytvorime horni trojuhlenikovou matici
+L = np.eye(n) # jednotkova matice, ze ktere postupne vytvorime dolni trojuhlenikovou matici
 for k in range(n):
     U[k, k:] = A[k, k:] - np.dot(L[k,:k],U[:k,k:])
     L[(k+1):,k] = (A[(k+1):,k] - np.dot(L[(k+1):,:],U[:,k])) / U[k, k]

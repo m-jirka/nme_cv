@@ -353,8 +353,7 @@
 <h2><span class="section-number">3.1. </span>Násobení matic<a class="headerlink" href="#nasobeni-matic" title="Permalink to this headline">¶</a></h2>
 <div class="alert alert-block alert-warning"><b>Cvičení 03.01: </b> Napište program pro násobení matic $\mathbb{A}$ and $\mathbb{B}$.</div><div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
-<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
 <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">3.7</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
 <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mf">4.5</span><span class="p">],</span>
 <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
@@ -368,6 +367,33 @@
 <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
 <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">]</span>
 <span class="p">])</span>
+
+<span class="n">pocet_radku</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">pocet_sloupcu</span> <span class="o">=</span> <span class="n">B</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">pocet_radku</span><span class="p">,</span><span class="n">pocet_sloupcu</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">pocet_radku</span><span class="p">):</span>          <span class="c1">#zvolim i-ty radek matice A</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">pocet_sloupcu</span><span class="p">):</span>    <span class="c1"># a j-ty sloupec matice B</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>   <span class="c1"># projdu zaroven cely i-ty radek A a j-ty sloupec B</span>
+            <span class="n">C</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">C</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">k</span><span class="p">]</span><span class="o">*</span><span class="n">B</span><span class="p">[</span><span class="n">k</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="c1"># poscitam vynasobene hodnoty a ulozim je do prvku C[i,j]           </span>
+<span class="nb">print</span><span class="p">(</span><span class="n">C</span><span class="p">)</span>
+
+<span class="n">C_kontrola</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">C_kontrola</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ -3.7  -7.4 -11.1 -14.8 -25.9]
+ [ 22.5  26.   30.5  25.    2. ]
+ [ 26.   29.   37.   36.   50. ]
+ [ 20.   21.   23.   20.   12. ]
+ [ 14.   21.   29.   26.    7. ]]
+[[ -3.7  -7.4 -11.1 -14.8 -25.9]
+ [ 22.5  26.   30.5  25.    2. ]
+ [ 26.   29.   37.   36.   50. ]
+ [ 20.   21.   23.   20.   12. ]
+ [ 14.   21.   29.   26.    7. ]]
 </pre></div>
 </div>
 </div>
@@ -392,16 +418,38 @@
 <li><p>Při převodou matice <span class="math notranslate nohighlight">\(\mathbb{A}\)</span> na trojúhelníkový tvar hraje roli výběr hlavního prvku <span class="math notranslate nohighlight">\(a_{11}\)</span> (pivotu) matice <span class="math notranslate nohighlight">\(\mathbb{A}\)</span> (v důsledku omezené přesnosti čísel v počítači)</p></li>
 <li><p>Příklad na <a class="reference external" href="http://kfe.fjfi.cvut.cz/~vachal/edu/nme/cviceni/02_linalg/DOCS/priklad_pivoting.pdf">pivoting</a></p></li>
 <li><p>Následuje zpětný běh, ve kterém vypočítáme složky vektoru <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> ve směru klesajícího indexu <span class="math notranslate nohighlight">\(i\)</span>:
-<span class="math notranslate nohighlight">\(x_{i}=\dfrac{b_{i}-\sum_{j=i+1}^{n}a_{ij}x_{j}}{a_{ii}}\)</span> kde <span class="math notranslate nohighlight">\(i= n-1, n-2,..., 0\)</span></p></li>
+<span class="math notranslate nohighlight">\(x_{i}=\dfrac{b_{i}-\sum_{j=i+1}^{n-1}a_{ij}x_{j}}{a_{ii}}\)</span> kde <span class="math notranslate nohighlight">\(i= n-1, n-2,..., 0\)</span></p></li>
 </ul>
-<div class="alert alert-block alert-warning"><b>Cvičení 03.02: </b> Vyřeště soustavu lineární rovnic s horní trojúhlenikovou maticí.</div><div class="cell docutils container">
+<div class="alert alert-block alert-warning"><b>Cvičení 03.02: </b> Vyřeště soustavu lineárních  rovnic s horní trojúhlenikovou maticí.</div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
 <span class="c1"># zpetny beh</span>
 
 <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">6</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">21</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">21</span><span class="p">,</span><span class="o">-</span><span class="mi">57</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">78</span><span class="p">]])</span> <span class="c1"># matice v hornim trojuhelnikovem tvaru</span>
 <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">141</span><span class="p">,</span><span class="o">-</span><span class="mi">123</span><span class="p">,</span><span class="mi">312</span><span class="p">]])</span><span class="o">.</span><span class="n">T</span> <span class="c1"># vektor b</span>
+
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span> <span class="c1"># neznamy vektor</span>
+<span class="n">n</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">size</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">soucet</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">soucet</span> <span class="o">=</span> <span class="n">soucet</span><span class="o">+</span><span class="n">x</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">*</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span>
+    <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="n">soucet</span><span class="p">)</span><span class="o">/</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">i</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Nami vypocitany vektor x = &#39;</span> <span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+
+<span class="n">x_kontrola</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Kontrola: x = &#39;</span><span class="p">,</span><span class="n">x_kontrola</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nami vypocitany vektor x =  [[2.]
+ [5.]
+ [4.]]
+Kontrola: x =  [[2.]
+ [5.]
+ [4.]]
 </pre></div>
 </div>
 </div>
@@ -428,21 +476,16 @@
 <div class="alert alert-block alert-warning"><b>Cvičení 03.03: </b> Příklad na $\mathbb{L}\mathbb{U}$ dekompozici matice $\mathbb{A}$.</div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
-<span class="c1">#A = np.array([</span>
-<span class="c1">#[1,2,4],</span>
-<span class="c1">#[3,8,14],</span>
-<span class="c1">#[2,6,13]</span>
-<span class="c1">#])</span>
-
+<span class="c1"># matice A</span>
 <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
 <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span>
 <span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span>
 <span class="p">])</span>
 
 
-<span class="n">n</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">U</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
-<span class="n">L</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="n">n</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># pocet radku matice A</span>
+<span class="n">U</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span> <span class="c1"># nulova matice, ze ktere postupne vytvorime horni trojuhlenikovou matici</span>
+<span class="n">L</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="c1"># jednotkova matice, ze ktere postupne vytvorime dolni trojuhlenikovou matici</span>
 <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
     <span class="n">U</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="n">k</span><span class="p">:]</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="n">k</span><span class="p">:]</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">L</span><span class="p">[</span><span class="n">k</span><span class="p">,:</span><span class="n">k</span><span class="p">],</span><span class="n">U</span><span class="p">[:</span><span class="n">k</span><span class="p">,</span><span class="n">k</span><span class="p">:])</span>
     <span class="n">L</span><span class="p">[(</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">):,</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">A</span><span class="p">[(</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">):,</span><span class="n">k</span><span class="p">]</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">L</span><span class="p">[(</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">):,:],</span><span class="n">U</span><span class="p">[:,</span><span class="n">k</span><span class="p">]))</span> <span class="o">/</span> <span class="n">U</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="n">k</span><span class="p">]</span>
