@@ -83,6 +83,9 @@ for i in range(pocet_iteraci):
     velikostReseniA = np.append(velikostReseniA, np.linalg.norm(x))  # jen pro zobrazovani
     velikostChybyA = np.append(velikostChybyA,np.linalg.norm(x-reseniA)) # jen pro zobrazovani
     # DOPLNTE #
+    F = -np.dot(np.linalg.inv(D),(L+U))
+    G = np.linalg.inv(D)
+    x = np.dot(F,x) + np.dot(G,b)                         # toto je vlastni vypocet 
     # DOPLNTE #
 
 
@@ -97,6 +100,9 @@ for i in range(pocet_iteraci):
     velikostReseniB = np.append(velikostReseniB, np.linalg.norm(x))  # jen pro zobrazovani
     velikostChybyB = np.append(velikostChybyB,np.linalg.norm(x-reseniB)) # jen pro zobrazovani
     # DOPLNTE #
+    F = -np.dot(np.linalg.inv(D),(L+U))
+    G = np.linalg.inv(D)
+    x = np.dot(F,x) + np.dot(G,b)                         # vlastni vypocet
     # DOPLNTE #
     
 # zobrazime si, jak to vypada
@@ -174,6 +180,9 @@ for i in range(pocet_iteraci):
     velikostReseniA = np.append(velikostReseniA, np.linalg.norm(x))  # jen pro zobrazovani
     velikostChybyA = np.append(velikostChybyA,np.linalg.norm(x-reseniA)) # jen pro zobrazovani
     # DOPLNTE
+    F = -np.dot(np.linalg.inv(D+L),U)
+    G = np.linalg.inv(D+L)
+    x = np.dot(F,x) + np.dot(G,b)                         # toto je vlastni vypocet 
     # DOPLNTE
 
 
@@ -189,6 +198,9 @@ for i in range(pocet_iteraci):
     velikostReseniB = np.append(velikostReseniB, np.linalg.norm(x))  # jen pro zobrazovani
     velikostChybyB = np.append(velikostChybyB,np.linalg.norm(x-reseniB)) # jen pro zobrazovani
     # DOPLNTE
+    F = -np.dot(np.linalg.inv(D+L),U)
+    G = np.linalg.inv(D+L)
+    x = np.dot(F,x) + np.dot(G,b)                         # vlastni vypocet
     # DOPLNTE
 
 # zobrazime si, jak to vypada
@@ -262,6 +274,9 @@ x = uvodniOdhad
 vzdProstaIterace = np.array([])
 for i in range(pocet_iteraci):
     # DOPLNTE
+    F = B
+    G = np.eye(F.shape[0])
+    x = np.dot(F,x) + np.dot(G,b)
     # DOPLNTE
     vzdProstaIterace = np.append(vzdProstaIterace,np.linalg.norm(x-origReseni))
 
@@ -302,6 +317,8 @@ x = uvodniOdhad
 vzdSuperRelaxace = np.array([])
 for i in range(pocet_iteraci):
     # DOPLNTE
+    xkp1 = np.dot(F,x) + np.dot(G,b)                         
+    x = omega * (xkp1 - x) + x
     # DOPLNTE
     vzdSuperRelaxace = np.append(vzdSuperRelaxace,np.linalg.norm(x-origReseni))
 
@@ -324,6 +341,8 @@ x = uvodniOdhad
 vzdSuperRelaxaceOmega = np.array([])
 for i in range(pocet_iteraci):
     # DOPLNTE
+    xkp1 = np.dot(F,x) + np.dot(G,b)                         
+    x = omega * (xkp1 - x) + x
     # DOPLNTE
     vzdSuperRelaxaceOmega = np.append(vzdSuperRelaxaceOmega,np.linalg.norm(x-origReseni))
 
@@ -403,6 +422,7 @@ odhadVlastnihoCisla = np.array([])
 for i in range(pocet_iteraci):
     odhadVlastnihoCisla = np.append(odhadVlastnihoCisla,np.linalg.norm(np.dot(matice,v)))
     # DOPLNTE
+    v = np.dot(matice,v) / np.linalg.norm(np.dot(matice,v))
     # DOPLNTE
     
 
