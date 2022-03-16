@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>1. Jupyter notebook a základy Pythonu &#8212; Numerické metody - cvičení</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
@@ -125,6 +126,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="Cviceni04.html">
    4. Iterační metody řešení soustav lineárních rovnic, hledání vlastních čísel
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Cviceni05.html">
+   5. Aproximace funkcí
   </a>
  </li>
 </ul>
@@ -419,9 +425,9 @@
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="jupyter-notebook-a-zaklady-pythonu">
+  <section class="tex2jax_ignore mathjax_ignore" id="jupyter-notebook-a-zaklady-pythonu">
 <h1><span class="section-number">1. </span>Jupyter notebook a základy Pythonu<a class="headerlink" href="#jupyter-notebook-a-zaklady-pythonu" title="Permalink to this headline">¶</a></h1>
-<div class="alert alert-block alert-success"><b>On-line interaktivní verze: </b> Pro spuštení interaktivní verze této stránky klikněte ve vrchním menu na <i class="fa fa-rocket" aria-hidden="true"></i> a zvolte <i>Binder</i>, ve kterém lze <i>Jupyter notebook</i> (JP) upravovat a následně uložit na disk. Volba <i>Live Code</i> umožní editovat a spouštět řádky s kódem.</div><div class="alert alert-block alert-info"><b>Tip: </b> Tento soubor je možné stáhnout kliknutím na <i class="fa fa-download" aria-hidden="true"></i>, a to ve formě <code>*.ipynb</code> pro pozdější off-line editaci v prostředí <a href="https://www.anaconda.com/">Anaconda</a>, nebo pro on-line editaci v <a href="https://colab.research.google.com/">Google Colab</a>.</div><div class="section" id="interaktivni-jupyter-notebook">
+<div class="alert alert-block alert-success"><b>On-line interaktivní verze: </b> Pro spuštení interaktivní verze této stránky klikněte ve vrchním menu na <i class="fa fa-rocket" aria-hidden="true"></i> a zvolte <i>Binder</i>, ve kterém lze <i>Jupyter notebook</i> (JP) upravovat a následně uložit na disk. Volba <i>Live Code</i> umožní editovat a spouštět řádky s kódem.</div><div class="alert alert-block alert-info"><b>Tip: </b> Tento soubor je možné stáhnout kliknutím na <i class="fa fa-download" aria-hidden="true"></i>, a to ve formě <code>*.ipynb</code> pro pozdější off-line editaci v prostředí <a href="https://www.anaconda.com/">Anaconda</a>, nebo pro on-line editaci v <a href="https://colab.research.google.com/">Google Colab</a>.</div><section id="interaktivni-jupyter-notebook">
 <h2><span class="section-number">1.1. </span>Interaktivní Jupyter notebook<a class="headerlink" href="#interaktivni-jupyter-notebook" title="Permalink to this headline">¶</a></h2>
 <p>Napište <code class="docutils literal notranslate"><span class="pre">print('Hello,</span> <span class="pre">World!')</span></code> a stiskněte <code class="docutils literal notranslate"><span class="pre">Shift</span></code> <code class="docutils literal notranslate"><span class="pre">+</span></code> <code class="docutils literal notranslate"><span class="pre">Enter</span></code> (nebo <code class="docutils literal notranslate"><span class="pre">Ctrl</span></code> <code class="docutils literal notranslate"><span class="pre">+</span></code> <code class="docutils literal notranslate"><span class="pre">Enter</span></code>)</p>
 <div class="cell docutils container">
@@ -449,8 +455,8 @@
 <li><p>Pokud chcete řádek převést na kód, stiskněte <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p></li>
 </ol>
 <p><strong>Pro nápovědu stiskněte <code class="docutils literal notranslate"><span class="pre">h</span></code>.</strong></p>
-</div>
-<div class="section" id="python">
+</section>
+<section id="python">
 <h2><span class="section-number">1.2. </span>Python<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h2>
 <p>Jednořádkový komentář se zadává za znak <code class="docutils literal notranslate"><span class="pre">#</span></code>, více řádků lze zakomentovat pomocí <code class="docutils literal notranslate"><span class="pre">&quot;&quot;&quot;</span></code> a <code class="docutils literal notranslate"><span class="pre">&quot;&quot;&quot;</span></code>:</p>
 <div class="cell docutils container">
@@ -522,10 +528,10 @@ Zbytek po deleni  3.0
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="podminkove-cykly">
+</section>
+<section id="podminkove-cykly">
 <h2><span class="section-number">1.3. </span>Podmínkové cykly<a class="headerlink" href="#podminkove-cykly" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="if-else">
+<section id="if-else">
 <h3><span class="section-number">1.3.1. </span>If … else<a class="headerlink" href="#if-else" title="Permalink to this headline">¶</a></h3>
 <div class="alert alert-block alert-danger"><b>Pozor:</b> vnitřní části kódu je <b>nutné odsadit</b>, obvykle se používají <b>čtyři mezery</b>.</div><p>Za klíčovými slovy <code class="docutils literal notranslate"><span class="pre">if</span></code> a <code class="docutils literal notranslate"><span class="pre">else</span></code> musíme psát <code class="docutils literal notranslate"><span class="pre">:</span></code>.</p>
 <div class="cell docutils container">
@@ -548,8 +554,8 @@ Tento text se vypise vzdy.
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="for">
+</section>
+<section id="for">
 <h3><span class="section-number">1.3.2. </span>For …<a class="headerlink" href="#for" title="Permalink to this headline">¶</a></h3>
 <p>Zde využijeme funkci <code class="docutils literal notranslate"><span class="pre">range(min,max,krok)</span></code>, která vytvoří sekvenci celých čísel od <code class="docutils literal notranslate"><span class="pre">min</span></code> po <code class="docutils literal notranslate"><span class="pre">max</span></code> <em><strong>(prvek max není v sekvenci obsažen)</strong></em> s uvedeným krokem. Výchozí hodnoty jsou <code class="docutils literal notranslate"><span class="pre">min</span> <span class="pre">=</span> <span class="pre">0</span></code> a <code class="docutils literal notranslate"><span class="pre">krok</span> <span class="pre">=</span> <span class="pre">1</span></code>.</p>
 <div class="cell docutils container">
@@ -574,8 +580,8 @@ Tento text se vypise vzdy.
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="while">
+</section>
+<section id="while">
 <h3><span class="section-number">1.3.3. </span>While…<a class="headerlink" href="#while" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -601,8 +607,8 @@ Tento text se vypise vzdy.
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="break">
+</section>
+<section id="break">
 <h3><span class="section-number">1.3.4. </span>Break<a class="headerlink" href="#break" title="Permalink to this headline">¶</a></h3>
 <p>Pomocí příkazu <code class="docutils literal notranslate"><span class="pre">break</span></code> se ukončí probíhající cyklus. Pokud je cyklus vnořený, ukončí se pouze tento vnořený cyklus. V následujícím příkladu využijeme funkci <code class="docutils literal notranslate"><span class="pre">len()</span></code> která nám vrátí délku seznamu vytvořeného pomocí <code class="docutils literal notranslate"><span class="pre">range()</span></code>.</p>
 <div class="cell docutils container">
@@ -630,8 +636,8 @@ Hotovo
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="continue">
+</section>
+<section id="continue">
 <h3><span class="section-number">1.3.5. </span>Continue<a class="headerlink" href="#continue" title="Permalink to this headline">¶</a></h3>
 <p>Příkaz <code class="docutils literal notranslate"><span class="pre">continue</span></code> zastaví provádění daného cyklu nebo podmínky a pokračuje v provádění nadřazeného cyklu.</p>
 <div class="cell docutils container">
@@ -663,9 +669,9 @@ Hotovo
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="funkce">
+</section>
+</section>
+<section id="funkce">
 <h2><span class="section-number">1.4. </span>Funkce<a class="headerlink" href="#funkce" title="Permalink to this headline">¶</a></h2>
 <p>Funkce se definuje příkazem <code class="docutils literal notranslate"><span class="pre">def</span></code>. Následuje jméno funkce, seznam vstupních parametrů a vše je zakončené <code class="docutils literal notranslate"><span class="pre">:</span></code>. Tělo funkce musí být odsazené. Funkce může vrátit hodnotu pomocí příkazu <code class="docutils literal notranslate"><span class="pre">return</span></code>.</p>
 <div class="cell docutils container">
@@ -702,8 +708,8 @@ Hotovo
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="numericka-knihovna-numpy">
+</section>
+<section id="numericka-knihovna-numpy">
 <h2><span class="section-number">1.5. </span>Numerická knihovna numpy<a class="headerlink" href="#numericka-knihovna-numpy" title="Permalink to this headline">¶</a></h2>
 <p>Pro import numerické knihovny <code class="docutils literal notranslate"><span class="pre">numpy</span></code> použijeme příkaz:</p>
 <div class="cell docutils container">
@@ -713,7 +719,7 @@ Hotovo
 </div>
 </div>
 </div>
-<div class="section" id="maticove-operace">
+<section id="maticove-operace">
 <h3><span class="section-number">1.5.1. </span>Maticové operace<a class="headerlink" href="#maticove-operace" title="Permalink to this headline">¶</a></h3>
 <p>Pole (vektor, matice) lze vytvářet pomocí funkce <code class="docutils literal notranslate"><span class="pre">array()</span></code>:</p>
 <div class="cell docutils container">
@@ -893,9 +899,9 @@ Hotovo
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.71093828 0.79412587]
- [0.46162388 0.39798103]
- [0.81653625 0.99246574]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.43310666 0.2725035 ]
+ [0.78040475 0.91760437]
+ [0.92620937 0.85095945]]
 </pre></div>
 </div>
 </div>
@@ -1025,8 +1031,8 @@ Hotovo
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="id1">
+</section>
+<section id="id1">
 <h3><span class="section-number">1.5.2. </span>Funkce<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">numpy</span></code> obsahuje často používané funkce a konstanty (napr. <code class="docutils literal notranslate"><span class="pre">sqrt()</span></code>, <code class="docutils literal notranslate"><span class="pre">log()</span></code>, <code class="docutils literal notranslate"><span class="pre">log10()</span></code>, <code class="docutils literal notranslate"><span class="pre">sin()</span></code>, <code class="docutils literal notranslate"><span class="pre">abs()</span></code>, <code class="docutils literal notranslate"><span class="pre">e</span></code>, <code class="docutils literal notranslate"><span class="pre">pi</span></code>, …):</p>
 <div class="cell docutils container">
@@ -1127,9 +1133,9 @@ Hotovo
 </div>
 </div>
 </div>
-<div class="alert alert-block alert-info"><b>Tip: </b> Další příklady a návody pro práci s knihovnou <code>numpy</code> lze nalézt na <a href='https://numpy.org/'>https://numpy.org/</a>.</div></div>
-</div>
-<div class="section" id="visualizace-dat">
+<div class="alert alert-block alert-info"><b>Tip: </b> Další příklady a návody pro práci s knihovnou <code>numpy</code> lze nalézt na <a href='https://numpy.org/'>https://numpy.org/</a>.</div></section>
+</section>
+<section id="visualizace-dat">
 <h2><span class="section-number">1.6. </span>Visualizace dat<a class="headerlink" href="#visualizace-dat" title="Permalink to this headline">¶</a></h2>
 <p>Pro kreslení grafů využijeme knihovnu <code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot</span></code>:</p>
 <div class="cell docutils container">
@@ -1139,7 +1145,7 @@ Hotovo
 </div>
 </div>
 </div>
-<div class="section" id="graf-jedne-promenne">
+<section id="graf-jedne-promenne">
 <h3><span class="section-number">1.6.1. </span>Graf jedné proměnné<a class="headerlink" href="#graf-jedne-promenne" title="Permalink to this headline">¶</a></h3>
 <p>Vygenerujeme <span class="math notranslate nohighlight">\(x\)</span> a <span class="math notranslate nohighlight">\(y\)</span> hodnoty pro funkci <code class="docutils literal notranslate"><span class="pre">sin()</span></code>:</p>
 <div class="cell docutils container">
@@ -1159,7 +1165,7 @@ Hotovo
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f83515cfd00&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f7296c15e80&gt;]
 </pre></div>
 </div>
 <img alt="_images/Cviceni01_99_1.png" src="_images/Cviceni01_99_1.png" />
@@ -1204,7 +1210,7 @@ Hotovo
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f8350c97fd0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f72962e0fd0&gt;
 </pre></div>
 </div>
 <img alt="_images/Cviceni01_103_1.png" src="_images/Cviceni01_103_1.png" />
@@ -1218,8 +1224,8 @@ Hotovo
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="visualizace-zavislosti-dvou-promennych">
+</section>
+<section id="visualizace-zavislosti-dvou-promennych">
 <h3><span class="section-number">1.6.2. </span>Visualizace závislosti dvou proměnných<a class="headerlink" href="#visualizace-zavislosti-dvou-promennych" title="Permalink to this headline">¶</a></h3>
 <p>Mějme funkci <span class="math notranslate nohighlight">\(z(x,y)\)</span>, která závisí na dvou proměnných <span class="math notranslate nohighlight">\(z(x,y)=\exp(-\sqrt{x^2+y^2})\cos(2x)\sin(2y)\)</span>, a vykreslíme její závislost v 2D grafu.</p>
 <p>Vytvoříme mřížku <span class="math notranslate nohighlight">\(x\times y\)</span> pomocí funkce <code class="docutils literal notranslate"><span class="pre">meshgrid()</span></code>:</p>
@@ -1257,7 +1263,7 @@ Hotovo
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PolyCollection at 0x7f8350400850&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PolyCollection at 0x7f7295a45850&gt;
 </pre></div>
 </div>
 <img alt="_images/Cviceni01_113_1.png" src="_images/Cviceni01_113_1.png" />
@@ -1276,14 +1282,14 @@ Hotovo
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.contour.QuadContourSet at 0x7f8350236be0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.contour.QuadContourSet at 0x7f72958813a0&gt;
 </pre></div>
 </div>
 <img alt="_images/Cviceni01_115_1.png" src="_images/Cviceni01_115_1.png" />
 </div>
 </div>
-</div>
-<div class="section" id="d-visualizace">
+</section>
+<section id="d-visualizace">
 <h3><span class="section-number">1.6.3. </span>3D visualizace<a class="headerlink" href="#d-visualizace" title="Permalink to this headline">¶</a></h3>
 <p>Máme stejnou funkci <span class="math notranslate nohighlight">\(z(x,y)=\exp(-\sqrt{x^2+y^2})\cos(2x)\sin(2y)\)</span>, kterou nyní chceme vykreslit v 3D grafu. Nejdříve vytvoříme trojrozměrnou osu:</p>
 <div class="cell docutils container">
@@ -1355,9 +1361,9 @@ Hotovo
 <img alt="_images/Cviceni01_126_0.png" src="_images/Cviceni01_126_0.png" />
 </div>
 </div>
-<div class="alert alert-block alert-info"><b>Tip: </b> Další příklady a návody pro práci s knihovnou <code>matplotlib</code> lze nalézt na <a href='https://matplotlib.org/'>https://matplotlib.org/</a>.</div></div>
-</div>
-</div>
+<div class="alert alert-block alert-info"><b>Tip: </b> Další příklady a návody pro práci s knihovnou <code>matplotlib</code> lze nalézt na <a href='https://matplotlib.org/'>https://matplotlib.org/</a>.</div></section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
