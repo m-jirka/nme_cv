@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>3. Numerické metody lineární algebry &#8212; Numerické metody - cvičení</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
@@ -125,6 +126,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="Cviceni04.html">
    4. Iterační metody řešení soustav lineárních rovnic, hledání vlastních čísel
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Cviceni05.html">
+   5. Aproximace funkcí
   </a>
  </li>
 </ul>
@@ -345,7 +351,7 @@
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="numericke-metody-linearni-algebry">
+  <section class="tex2jax_ignore mathjax_ignore" id="numericke-metody-linearni-algebry">
 <h1><span class="section-number">3. </span>Numerické metody lineární algebry<a class="headerlink" href="#numericke-metody-linearni-algebry" title="Permalink to this headline">¶</a></h1>
 <p>Naimportujeme si knihovny potřebné pro následující příklady:</p>
 <div class="cell docutils container">
@@ -355,7 +361,7 @@
 </div>
 </div>
 </div>
-<div class="section" id="nasobeni-matic">
+<section id="nasobeni-matic">
 <h2><span class="section-number">3.1. </span>Násobení matic<a class="headerlink" href="#nasobeni-matic" title="Permalink to this headline">¶</a></h2>
 <div class="alert alert-block alert-warning"><b>Cvičení 03.01: </b> Napište program pro násobení matic $\mathbb{A}$ and $\mathbb{B}$.</div><div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -404,21 +410,21 @@
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="prime-metody-pro-reseni-linearnich-rovnic-mathbb-a-mathbf-x-mathbf-b">
+</section>
+<section id="prime-metody-pro-reseni-linearnich-rovnic-mathbb-a-mathbf-x-mathbf-b">
 <h2><span class="section-number">3.2. </span>Přímé metody pro řešení lineárních rovnic <span class="math notranslate nohighlight">\(\mathbb{A}\mathbf{x}=\mathbf{b}\)</span><a class="headerlink" href="#prime-metody-pro-reseni-linearnich-rovnic-mathbb-a-mathbf-x-mathbf-b" title="Permalink to this headline">¶</a></h2>
 <ol class="simple">
 <li><p>Gaussova metoda</p></li>
 <li><p>Gauss-Jordanova metoda</p></li>
 <li><p>LU dekompozice</p></li>
 </ol>
-<div class="section" id="gaussova-metoda">
+<section id="gaussova-metoda">
 <h3><span class="section-number">3.2.1. </span>Gaussova metoda<a class="headerlink" href="#gaussova-metoda" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p><strong>Přímý běh:</strong> matici <span class="math notranslate nohighlight">\(\mathbb{A}\)</span> převedeme na trojúhleníkový tvar.</p></li>
 <li><p><strong>Zpětný běh:</strong> vypočítáme složky vektoru <span class="math notranslate nohighlight">\(\mathbf{x}\)</span>.</p></li>
 </ul>
-<div class="section" id="reseni-soustav-s-trojuhelnikovou-matici">
+<section id="reseni-soustav-s-trojuhelnikovou-matici">
 <h4><span class="section-number">3.2.1.1. </span>Řešení soustav s trojúhelníkovou maticí<a class="headerlink" href="#reseni-soustav-s-trojuhelnikovou-matici" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li><p>Při převodou matice <span class="math notranslate nohighlight">\(\mathbb{A}\)</span> na trojúhelníkový tvar hraje roli výběr hlavního prvku <span class="math notranslate nohighlight">\(a_{11}\)</span> (pivotu) matice <span class="math notranslate nohighlight">\(\mathbb{A}\)</span> (v důsledku omezené přesnosti čísel v počítači)</p></li>
@@ -460,17 +466,17 @@ Kontrola: x =  [[2.]
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="gauss-jordanova-metoda">
+</section>
+</section>
+<section id="gauss-jordanova-metoda">
 <h3><span class="section-number">3.2.2. </span>Gauss-Jordanova metoda<a class="headerlink" href="#gauss-jordanova-metoda" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Matici <span class="math notranslate nohighlight">\(\mathbb{A}\)</span> převedeme na tvar, kdy jsou na hlavní diagonále samé jedničky</p></li>
 <li><p>Touto metodou lze získat i inverzní matici <span class="math notranslate nohighlight">\(\mathbb{A}^{-1}\)</span></p></li>
 <li><p><a class="reference external" href="http://kfe.fjfi.cvut.cz/~vachal/edu/nme/cviceni/02_linalg/DOCS/priklad_GaussJordan.pdf">Ukázka</a></p></li>
 </ul>
-</div>
-<div class="section" id="lu-dekompozice">
+</section>
+<section id="lu-dekompozice">
 <h3><span class="section-number">3.2.3. </span>LU dekompozice<a class="headerlink" href="#lu-dekompozice" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Matici <span class="math notranslate nohighlight">\(\mathbb{A}\)</span> lze rozepsat jako součin <span class="math notranslate nohighlight">\(\mathbb{A}=\mathbb{L}\mathbb{U}\)</span></p></li>
@@ -510,11 +516,11 @@ Matice U =  [[ 4.   3. ]
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="specialni-typy-matic">
+</section>
+</section>
+<section id="specialni-typy-matic">
 <h2><span class="section-number">3.3. </span>Speciální typy matic<a class="headerlink" href="#specialni-typy-matic" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="tridiagonalni-matice">
+<section id="tridiagonalni-matice">
 <h3><span class="section-number">3.3.1. </span>Tridiagonální matice<a class="headerlink" href="#tridiagonalni-matice" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Matice s kladnými prvky na hlavní a první pod- a naddiagonále.</p></li>
@@ -565,9 +571,9 @@ Matice U =  [[ 4.   3. ]
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
