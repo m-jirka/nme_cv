@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Aproximace funkcí
+# # Aproximace funkcí I
 
 # Naimportujeme si knihovny potřebné pro následující příklady:
 
