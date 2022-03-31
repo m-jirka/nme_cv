@@ -443,9 +443,13 @@
 <span class="n">reseni</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">iteraci</span><span class="p">))</span> <span class="c1"># aktualni odhad reseni</span>
 
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">iteraci</span><span class="p">):</span>
-    <span class="c1"># DOPLNTE</span>
-    <span class="c1">#</span>
-    <span class="c1"># DOPLNTE</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+    <span class="n">epsilon</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">b</span><span class="o">-</span><span class="n">a</span>
+    <span class="n">reseni</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+    <span class="k">if</span> <span class="n">f</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">*</span><span class="n">f</span><span class="p">(</span><span class="n">c</span><span class="p">)</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">:</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="n">c</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="n">c</span>
 
 
 <span class="n">koren</span> <span class="o">=</span> <span class="n">reseni</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># odhad konecneho reseni</span>
@@ -473,12 +477,10 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;&lt;ipython-input-2-c9b3c6036b02&gt;&quot;</span><span class="gt">, line </span><span class="mi">26</span>
-    <span class="n">koren</span> <span class="o">=</span> <span class="n">reseni</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># odhad konecneho reseni</span>
-    <span class="o">^</span>
-<span class="ne">IndentationError</span>: expected an indented block
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>f(x)=0 pro x=  [0.52359878]
 </pre></div>
 </div>
+<img alt="_images/Cviceni07_8_1.png" src="_images/Cviceni07_8_1.png" />
 </div>
 </div>
 </section>
@@ -601,9 +603,12 @@ f(x_{i}+\delta)=f(x_{i})+\delta f'(x_{i})+\dfrac{\delta^{2}}{2}f''(x_{i})+\dots
 <span class="n">reseni</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">iteraci</span><span class="p">))</span> <span class="c1"># aktualni odhad reseni</span>
 
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">iteraci</span><span class="p">):</span>
-    <span class="c1"># DOPLNTE</span>
-    <span class="c1">#</span>
-    <span class="c1"># DOPLNTE</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">xi_p1</span><span class="o">-</span><span class="n">f</span><span class="p">(</span><span class="n">xi_p1</span><span class="p">)</span><span class="o">/</span><span class="n">df</span><span class="p">(</span><span class="n">xi_p1</span><span class="p">)</span>
+    <span class="n">epsilon</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">xi</span><span class="o">-</span><span class="n">xi_p1</span><span class="p">)</span>
+    <span class="n">xi</span> <span class="o">=</span> <span class="n">xi_p1</span>
+    <span class="n">xi_p1</span> <span class="o">=</span> <span class="n">c</span>
+    <span class="n">reseni</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">c</span>
+
     
 <span class="n">koren</span> <span class="o">=</span> <span class="n">reseni</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># odhad konecneho reseni</span>
 <span class="n">chyba</span> <span class="o">=</span> <span class="n">epsilon</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># odhad konecne chyby</span>
@@ -780,10 +785,10 @@ x_{n}=\varphi_{n}(\vec{x}).
     <span class="c1">#print(&#39;Krok &#39;, i ,&#39;, f1(x0, y0)= &#39;, f1(x0,y0))</span>
     <span class="c1">#print(&#39;Krok &#39;, i ,&#39;, f2(x0, y0)= &#39;, f2(x0,y0))</span>
     <span class="c1">#iteracni krok - vypocet z parametrickych rovnic</span>
-    
-    <span class="c1"># DOPLNTE</span>
-    <span class="c1">#</span>
-    <span class="c1"># DOPLNTE</span>
+    <span class="n">xn</span> <span class="o">=</span> <span class="n">phi1</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span><span class="n">y0</span><span class="p">)</span>
+    <span class="n">yn</span> <span class="o">=</span> <span class="n">phi2</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span><span class="n">y0</span><span class="p">)</span>
+    <span class="n">x0</span> <span class="o">=</span> <span class="n">xn</span>
+    <span class="n">y0</span> <span class="o">=</span> <span class="n">yn</span>
 </pre></div>
 </div>
 </div>
@@ -845,13 +850,14 @@ f_{i}(\vec{x}+\delta\vec{x})=f_{i}(\vec{x})+\sum_{j=1}^{n}\dfrac{\partial f_{i}}
     <span class="c1">#print(&#39;Krok &#39;, i ,&#39;, f1(x0, y0)= &#39;, f1(x0,y0))</span>
     <span class="c1">#print(&#39;Krok &#39;, i ,&#39;, f2(x0, y0)= &#39;, f2(x0,y0))</span>
     
-    <span class="c1"># DOPLNTE</span>
-    <span class="c1"># A[0,0] = </span>
-    <span class="c1"># ...</span>
-    <span class="c1"># b[0] = </span>
-    <span class="c1"># b[1] =</span>
-    <span class="c1"># DOPLNTE</span>
-    
+    <span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">dfdx</span><span class="p">(</span><span class="n">f1</span><span class="p">,</span><span class="n">x0</span><span class="p">,</span><span class="n">y0</span><span class="p">,</span><span class="n">h</span><span class="p">)</span>
+    <span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">dfdy</span><span class="p">(</span><span class="n">f1</span><span class="p">,</span><span class="n">x0</span><span class="p">,</span><span class="n">y0</span><span class="p">,</span><span class="n">h</span><span class="p">)</span>
+    <span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">dfdx</span><span class="p">(</span><span class="n">f2</span><span class="p">,</span><span class="n">x0</span><span class="p">,</span><span class="n">y0</span><span class="p">,</span><span class="n">h</span><span class="p">)</span>
+    <span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">dfdy</span><span class="p">(</span><span class="n">f2</span><span class="p">,</span><span class="n">x0</span><span class="p">,</span><span class="n">y0</span><span class="p">,</span><span class="n">h</span><span class="p">)</span>
+
+    <span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">f1</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span><span class="n">y0</span><span class="p">)</span>
+    <span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">f2</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span><span class="n">y0</span><span class="p">)</span>
+
     <span class="c1"># vypocitame neznamou</span>
     <span class="n">dx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
 
