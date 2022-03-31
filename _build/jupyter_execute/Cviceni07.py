@@ -60,9 +60,13 @@ epsilon = np.zeros((iteraci)) # odhad chyby, tedy delku intervalu <a,b> v jednot
 reseni = np.zeros((iteraci)) # aktualni odhad reseni
 
 for i in range(iteraci):
-    # DOPLNTE
-    #
-    # DOPLNTE
+    c = (a+b)/2
+    epsilon[i] = b-a
+    reseni[i] = (a+b)/2
+    if f(a)*f(c)<0:
+        b = c
+    else:
+        a = c
 
 
 koren = reseni[-1] # odhad konecneho reseni
@@ -96,7 +100,7 @@ print('f(x)=0 pro x= ',spravne_reseni)
 
 # <div class="alert alert-block alert-warning"><b>Cvičení 07.02: </b> Najděte kořen rovnice $f(x)=\exp(x)-6$ metodou sečny.</div>
 
-# In[22]:
+# In[3]:
 
 
 #
@@ -167,7 +171,7 @@ print('f(x)=0 pro x= ',spravne_reseni)
 
 # <div class="alert alert-block alert-warning"><b>Cvičení 07.03: </b> Najděte kořen rovnice $f(x)=\exp(x)-6$ tečnovou metodou.</div>
 
-# In[24]:
+# In[4]:
 
 
 # metoda tecny
@@ -194,9 +198,12 @@ epsilon = np.zeros((iteraci)) # odhad chyby, tedy rozdil poslednich dvou odhadu 
 reseni = np.zeros((iteraci)) # aktualni odhad reseni
 
 for i in range(iteraci):
-    # DOPLNTE
-    #
-    # DOPLNTE
+    c = xi_p1-f(xi_p1)/df(xi_p1)
+    epsilon[i] = np.abs(xi-xi_p1)
+    xi = xi_p1
+    xi_p1 = c
+    reseni[i] = c
+
     
 koren = reseni[-1] # odhad konecneho reseni
 chyba = epsilon[-1] # odhad konecne chyby
@@ -225,7 +232,7 @@ print('f(x)=0 pro x= ',spravne_reseni)
 
 # <div class="alert alert-block alert-warning"><b>Cvičení 07.04: </b> Najděte kořen rovnice $f(x)=4x^{3}-2x^{2}-4x-3$ Mullerovou metodou.</div>
 
-# In[6]:
+# In[5]:
 
 
 # Mullerova metoda
@@ -357,10 +364,10 @@ for i in range(n):
     #print('Krok ', i ,', f1(x0, y0)= ', f1(x0,y0))
     #print('Krok ', i ,', f2(x0, y0)= ', f2(x0,y0))
     #iteracni krok - vypocet z parametrickych rovnic
-    
-    # DOPLNTE
-    #
-    # DOPLNTE
+    xn = phi1(x0,y0)
+    yn = phi2(x0,y0)
+    x0 = xn
+    y0 = yn
 
 
 # ## Newton–Raphsonova metoda
@@ -379,7 +386,7 @@ for i in range(n):
 
 # <div class="alert alert-block alert-warning"><b>Cvičení 07.06: </b> Pomocí Newton-Raphsonovy metody najděte řešení soustavy nelineárních rovnic $$x^{2}+4x-y^{2}-2y-1=0,$$ $$x^{2}+5y-4=0.$$</div>
 
-# In[4]:
+# In[7]:
 
 
 #
@@ -421,13 +428,14 @@ for i in range(n):
     #print('Krok ', i ,', f1(x0, y0)= ', f1(x0,y0))
     #print('Krok ', i ,', f2(x0, y0)= ', f2(x0,y0))
     
-    # DOPLNTE
-    # A[0,0] = 
-    # ...
-    # b[0] = 
-    # b[1] =
-    # DOPLNTE
-    
+    A[0,0] = dfdx(f1,x0,y0,h)
+    A[0,1] = dfdy(f1,x0,y0,h)
+    A[1,0] = dfdx(f2,x0,y0,h)
+    A[1,1] = dfdy(f2,x0,y0,h)
+
+    b[0] = -f1(x0,y0)
+    b[1] = -f2(x0,y0)
+
     # vypocitame neznamou
     dx = np.linalg.solve(A,b)
 
