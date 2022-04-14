@@ -57,7 +57,6 @@ S_obdelnik = 0
 for i in range(pocet_kroku):
     bod = a + i*r
     # DOPLNTE
-    S_obdelnik = S_obdelnik + r*(f(bod+r/2))
 print('Obdelnikova metoda: ',S_obdelnik)
 
 # lichobeznikova metoda
@@ -65,7 +64,6 @@ S_lichobeznik = 0
 for i in range(pocet_kroku):
     bod = a + i*r  
     # DOPLNTE
-    S_lichobeznik = S_lichobeznik + r*(f(bod)+f(bod+r))/2
 print('Lichobeznikova metoda: ',S_lichobeznik)
 
 # Simpsonovo pravidlo
@@ -74,7 +72,6 @@ pocet_kroku_simpson = int(np.round(pocet_kroku/2))
 for i in range(pocet_kroku_simpson):
     bod = a + 2*i*r
     # DOPLNTE
-    S_simpson = S_simpson + r/3*(f(bod) + 4*f(bod+r) + f(bod + 2*r))
 print('Simpsonovo pravidlo: ',S_simpson)
 
 
@@ -150,7 +147,6 @@ for i in range(m):
     # DOPLNTE
     #
     # DOPLNTE
-    integral = integral+ vahy[i,1]*(b-a)/2*f(((b-a)*vahy[i,0]+ (a+b))/2)
 
 print('Nas vypocet: ',integral)
 
@@ -165,7 +161,7 @@ print('Kontrola: ', kontrola)
 
 # <div class="alert alert-block alert-warning"><b>Cvičení 09.03: </b> Zpřesněte numerický výpočet <a href="https://www.wolframalpha.com/input?i=sin%28x%29exp%28cos%28x%29%29">integrálu</a> $\int_{0}^{\pi} \sin(x)\exp[\cos(x)]\,dx$ Rombergovou metodou.</div>
 
-# In[4]:
+# In[5]:
 
 
 # kod
@@ -225,7 +221,7 @@ ax[2].legend()
 # ## Vícedimenzionální integrály
 # - $N$ dimenzí
 # - Počet bodů, ve kterých vyčíslujeme funkční hodnotu roste s $N$-tou mocninou
-#     - Např. 30 bodů v jedné dimenzi, ve třech dimenzích počítáme funkci ve $30^{3}=27000$ bodech
+#     - např. 30 bodů v jedné dimenzi, ve třech dimenzích počítáme funkci ve $30^{3}=27000$ bodech
 # - Metody
 #  - 1. Snížení dimenze pomocí symetrie
 #  - 2. Posloupnost opakovaných jednodimenzionálních integrací
@@ -245,7 +241,7 @@ ax[2].legend()
 
 # <div class="alert alert-block alert-warning"><b>Cvičení 09.04: </b> Metodou Monte-Carlo určete velikost konstanty $\pi$.</div>
 
-# In[5]:
+# In[6]:
 
 
 # kod
@@ -265,11 +261,6 @@ for i in range(steps):
     # DOPLNTE
     #
     # DOPLNTE
-    if (x[0,0]-0.5)**2+(x[0,1]-0.5)**2<0.5**2:
-        vkruhu = vkruhu + 1    # pricteme je
-        ax[0].scatter(x[0,0], x[0,1], marker="x", color='red')
-    else:
-        ax[0].scatter(x[0,0], x[0,1], marker="x", color='blue')
     npi = 4 * vkruhu / kapek
     plotPi[i] = npi 
 
@@ -287,7 +278,7 @@ print('Vypoctena hodnota pi = ',npi)
 
 # <div class="alert alert-block alert-warning"><b>Cvičení 09.05: </b> Numericky vypočítejte <a href="https://www.wolframalpha.com/input?i=integrate+x%2By+for+0%3Cx%3C1+and+0%3Cy%3C1">integrál</a> $\int_{0}^{1}\int_{0}^{1}(x+y) dx dy$. Vykreslete výslednou hodnotu, absolutní chybu a odhad přesnosti metody v závislosti na počtu kroků.</div>
 
-# In[6]:
+# In[7]:
 
 
 # kod
@@ -303,9 +294,6 @@ for i in range(kroku):
     # DOPLNTE
     # 
     # DOPLNTE
-    r = np.random.rand(1,2)  # dve nahodna cisla v intervalu (0,1)
-    value =  f(r[0,0],r[0,1])  # vypocteme funkcni hodnotu v techto dvou nahodnych bodech
-    suma = suma + value    # pricteme ke kumulovane hodnote
     vysledky[i,0] = suma / (i+1)  # prumer (kumul. hodnota delena poctem kroku)
 integral = suma / kroku
 
