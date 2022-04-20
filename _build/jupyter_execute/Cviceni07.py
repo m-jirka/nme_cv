@@ -283,7 +283,7 @@ while (np.abs(y3) > presnost): # predpokladame, ze treti bod je neblize reseni
     
 
 
-# # Soustavy nelineárních rovnic
+# ## Soustavy nelineárních rovnic
 
 # - řešíme soustavu $\vec{f}(\vec{x})=\vec{0}$
 # - přepíšeme ji do tvaru:
@@ -304,7 +304,7 @@ while (np.abs(y3) > presnost): # predpokladame, ze treti bod je neblize reseni
 # f_{n}(x_{1},x_{2},\dots,x_{n})=0.
 # $$
 
-# ## Prostá iterace
+# ### Prostá iterace
 
 # - soustavu lze přepsat do tvaru $\vec{x}=\vec{\varphi}(\vec{x})$:
 # 
@@ -370,7 +370,7 @@ for i in range(n):
     y0 = yn
 
 
-# ## Newton–Raphsonova metoda
+# ### Newton–Raphsonova metoda
 
 # - přesné řešení $\vec{\xi}$ vyjádříme ve tvaru $\vec{\xi}=\vec{x}+\delta\vec{x}$
 # - hodnotu funkce v bodě $\vec{\xi}$ vyjádříme pomocí Taylorovy věty:

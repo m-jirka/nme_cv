@@ -57,7 +57,7 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="9. Extrémy funkcí" href="Cviceni08.html" />
+    <link rel="next" title="8. Extrémy funkcí" href="Cviceni08.html" />
     <link rel="prev" title="6. Aproximace funkcí II, třídění" href="Cviceni06.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -145,12 +145,17 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="Cviceni08.html">
-   9. Extrémy funkcí
+   8. Extrémy funkcí
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="Cviceni09.html">
-   10. Numerická integrace
+   9. Numerická integrace
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Cviceni10.html">
+   10. Obyčejné diferenciální rovnice
   </a>
  </li>
 </ul>
@@ -244,58 +249,51 @@
             </div>
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   7. Řešení nelineárních rovnic
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reseni-jedne-nelinearni-rovnice">
+   7.1. Řešení jedné nelineární rovnice
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#reseni-jedne-nelinearni-rovnice">
-     7.1. Řešení jedné nelineární rovnice
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#metoda-puleni-intervalu">
+     7.1.1. Metoda půlení intervalu
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#metoda-puleni-intervalu">
-       7.1.1. Metoda půlení intervalu
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#metoda-secny">
-       7.1.2. Metoda sečny
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#metoda-regula-falsi">
-       7.1.3. Metoda regula falsi
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#newtonraphsonova-tecnova-metoda">
-       7.1.4. Newton–Raphsonova (tečnová) metoda
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#mullerova-metoda">
-       7.1.5. Mullerova metoda
-      </a>
-     </li>
-    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#metoda-secny">
+     7.1.2. Metoda sečny
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#metoda-regula-falsi">
+     7.1.3. Metoda regula falsi
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#newtonraphsonova-tecnova-metoda">
+     7.1.4. Newton–Raphsonova (tečnová) metoda
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mullerova-metoda">
+     7.1.5. Mullerova metoda
+    </a>
    </li>
   </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#soustavy-nelinearnich-rovnic">
-   8. Soustavy nelineárních rovnic
+   7.2. Soustavy nelineárních rovnic
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#prosta-iterace">
-     8.1. Prostá iterace
+     7.2.1. Prostá iterace
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#newtonraphsonova-metoda">
-     8.2. Newton–Raphsonova metoda
+     7.2.2. Newton–Raphsonova metoda
     </a>
    </li>
   </ul>
@@ -320,58 +318,51 @@
                         </div>
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   7. Řešení nelineárních rovnic
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reseni-jedne-nelinearni-rovnice">
+   7.1. Řešení jedné nelineární rovnice
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#reseni-jedne-nelinearni-rovnice">
-     7.1. Řešení jedné nelineární rovnice
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#metoda-puleni-intervalu">
+     7.1.1. Metoda půlení intervalu
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#metoda-puleni-intervalu">
-       7.1.1. Metoda půlení intervalu
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#metoda-secny">
-       7.1.2. Metoda sečny
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#metoda-regula-falsi">
-       7.1.3. Metoda regula falsi
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#newtonraphsonova-tecnova-metoda">
-       7.1.4. Newton–Raphsonova (tečnová) metoda
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#mullerova-metoda">
-       7.1.5. Mullerova metoda
-      </a>
-     </li>
-    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#metoda-secny">
+     7.1.2. Metoda sečny
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#metoda-regula-falsi">
+     7.1.3. Metoda regula falsi
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#newtonraphsonova-tecnova-metoda">
+     7.1.4. Newton–Raphsonova (tečnová) metoda
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mullerova-metoda">
+     7.1.5. Mullerova metoda
+    </a>
    </li>
   </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#soustavy-nelinearnich-rovnic">
-   8. Soustavy nelineárních rovnic
+   7.2. Soustavy nelineárních rovnic
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#prosta-iterace">
-     8.1. Prostá iterace
+     7.2.1. Prostá iterace
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#newtonraphsonova-metoda">
-     8.2. Newton–Raphsonova metoda
+     7.2.2. Newton–Raphsonova metoda
     </a>
    </li>
   </ul>
@@ -711,9 +702,8 @@ f(x_{i}+\delta)=f(x_{i})+\delta f'(x_{i})+\dfrac{\delta^{2}}{2}f''(x_{i})+\dots
 </div>
 </section>
 </section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="soustavy-nelinearnich-rovnic">
-<h1><span class="section-number">8. </span>Soustavy nelineárních rovnic<a class="headerlink" href="#soustavy-nelinearnich-rovnic" title="Permalink to this headline">¶</a></h1>
+<section id="soustavy-nelinearnich-rovnic">
+<h2><span class="section-number">7.2. </span>Soustavy nelineárních rovnic<a class="headerlink" href="#soustavy-nelinearnich-rovnic" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>řešíme soustavu <span class="math notranslate nohighlight">\(\vec{f}(\vec{x})=\vec{0}\)</span></p></li>
 <li><p>přepíšeme ji do tvaru:</p></li>
@@ -739,7 +729,7 @@ f_{3}(x_{1},x_{2},\dots,x_{n})=0,
 f_{n}(x_{1},x_{2},\dots,x_{n})=0.
 \]</div>
 <section id="prosta-iterace">
-<h2><span class="section-number">8.1. </span>Prostá iterace<a class="headerlink" href="#prosta-iterace" title="Permalink to this headline">¶</a></h2>
+<h3><span class="section-number">7.2.1. </span>Prostá iterace<a class="headerlink" href="#prosta-iterace" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>soustavu lze přepsat do tvaru <span class="math notranslate nohighlight">\(\vec{x}=\vec{\varphi}(\vec{x})\)</span>:</p></li>
 </ul>
@@ -806,7 +796,7 @@ x_{n}=\varphi_{n}(\vec{x}).
 </div>
 </section>
 <section id="newtonraphsonova-metoda">
-<h2><span class="section-number">8.2. </span>Newton–Raphsonova metoda<a class="headerlink" href="#newtonraphsonova-metoda" title="Permalink to this headline">¶</a></h2>
+<h3><span class="section-number">7.2.2. </span>Newton–Raphsonova metoda<a class="headerlink" href="#newtonraphsonova-metoda" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>přesné řešení <span class="math notranslate nohighlight">\(\vec{\xi}\)</span> vyjádříme ve tvaru <span class="math notranslate nohighlight">\(\vec{\xi}=\vec{x}+\delta\vec{x}\)</span></p></li>
 <li><p>hodnotu funkce v bodě <span class="math notranslate nohighlight">\(\vec{\xi}\)</span> vyjádříme pomocí Taylorovy věty:
@@ -881,6 +871,7 @@ f_{i}(\vec{x}+\delta\vec{x})=f_{i}(\vec{x})+\sum_{j=1}^{n}\dfrac{\partial f_{i}}
 </div>
 </section>
 </section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -917,7 +908,7 @@ f_{i}(\vec{x}+\delta\vec{x})=f_{i}(\vec{x})+\sum_{j=1}^{n}\dfrac{\partial f_{i}}
     <a class='right-next' id="next-link" href="Cviceni08.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">9. </span>Extrémy funkcí</p>
+        <p class="prev-next-title"><span class="section-number">8. </span>Extrémy funkcí</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
