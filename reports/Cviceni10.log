@@ -1,0 +1,76 @@
+Traceback (most recent call last):
+  File "/home/mjirka/anaconda3/lib/python3.8/site-packages/jupyter_cache/executors/utils.py", line 51, in single_nb_execution
+    executenb(
+  File "/home/mjirka/anaconda3/lib/python3.8/site-packages/nbclient/client.py", line 1112, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/home/mjirka/anaconda3/lib/python3.8/site-packages/nbclient/util.py", line 74, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "/home/mjirka/anaconda3/lib/python3.8/site-packages/nbclient/util.py", line 53, in just_run
+    return loop.run_until_complete(coro)
+  File "/home/mjirka/anaconda3/lib/python3.8/asyncio/base_events.py", line 616, in run_until_complete
+    return future.result()
+  File "/home/mjirka/anaconda3/lib/python3.8/site-packages/nbclient/client.py", line 553, in async_execute
+    await self.async_execute_cell(
+  File "/home/mjirka/anaconda3/lib/python3.8/site-packages/nbclient/client.py", line 857, in async_execute_cell
+    self._check_raise_for_error(cell, exec_reply)
+  File "/home/mjirka/anaconda3/lib/python3.8/site-packages/nbclient/client.py", line 760, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+# kod
+
+# demonstrace metody Runge-Kuta ctvrteho radu pro reseni soustavy dvou rovnic druheho radu
+
+# problém dvou těles
+
+T = 20 # budeme integrovat 20 sekund
+h = 0.01 # pouzijeme krok h, vsimnete si ze je relativne veliky v porovnani s Eulerovou metodou
+
+# pocatecni podminky
+# array([x, dx/dt, y, dy/dt])
+u = np.array([1, -0.3, 0, 0.3])
+
+
+def f(u):
+    w[0] = u[1]
+    w[1] = -u[0]/(u[0]**2+u[2]**2)**(3/2)
+    w[2] = u[3]
+    w[3] = -u[2]/(u[0]**2+u[2]**2)**(3/2)
+    return w
+fig, ax = plt.subplots(figsize=(15,4.5))
+
+pocetKroku = T / h # celkovy pocet kroku
+
+for i in range(int(np.round(pocetKroku))):
+    r = (u[0]**2+u[2]**2)**(1/2)
+    h = 1e-1*r**2
+    t = i / pocetKroku * T # spocteme cas odpovidajici kroku
+    ax.scatter(u[0], u[2], marker="x", color='C1')
+    k1 = f(u)    
+    k2 = f(u+h/2*k1)
+    k3 = f(u+h/2*k2)
+    k4 = f(u+h*k3)
+    u=u+h/6*(k1+2*k2+2*k3+k4)
+
+
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-3-4c96d8424694>[0m in [0;36m<module>[0;34m[0m
+[1;32m     28[0m     [0mt[0m [0;34m=[0m [0mi[0m [0;34m/[0m [0mpocetKroku[0m [0;34m*[0m [0mT[0m [0;31m# spocteme cas odpovidajici kroku[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     29[0m     [0max[0m[0;34m.[0m[0mscatter[0m[0;34m([0m[0mu[0m[0;34m[[0m[0;36m0[0m[0;34m][0m[0;34m,[0m [0mu[0m[0;34m[[0m[0;36m2[0m[0;34m][0m[0;34m,[0m [0mmarker[0m[0;34m=[0m[0;34m"x"[0m[0;34m,[0m [0mcolor[0m[0;34m=[0m[0;34m'C1'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 30[0;31m     [0mk1[0m [0;34m=[0m [0mf[0m[0;34m([0m[0mu[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     31[0m     [0mk2[0m [0;34m=[0m [0mf[0m[0;34m([0m[0mu[0m[0;34m+[0m[0mh[0m[0;34m/[0m[0;36m2[0m[0;34m*[0m[0mk1[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     32[0m     [0mk3[0m [0;34m=[0m [0mf[0m[0;34m([0m[0mu[0m[0;34m+[0m[0mh[0m[0;34m/[0m[0;36m2[0m[0;34m*[0m[0mk2[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m<ipython-input-3-4c96d8424694>[0m in [0;36mf[0;34m(u)[0m
+[1;32m     14[0m [0;34m[0m[0m
+[1;32m     15[0m [0;32mdef[0m [0mf[0m[0;34m([0m[0mu[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 16[0;31m     [0mw[0m[0;34m[[0m[0;36m0[0m[0;34m][0m [0;34m=[0m [0mu[0m[0;34m[[0m[0;36m1[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     17[0m     [0mw[0m[0;34m[[0m[0;36m1[0m[0;34m][0m [0;34m=[0m [0;34m-[0m[0mu[0m[0;34m[[0m[0;36m0[0m[0;34m][0m[0;34m/[0m[0;34m([0m[0mu[0m[0;34m[[0m[0;36m0[0m[0;34m][0m[0;34m**[0m[0;36m2[0m[0;34m+[0m[0mu[0m[0;34m[[0m[0;36m2[0m[0;34m][0m[0;34m**[0m[0;36m2[0m[0;34m)[0m[0;34m**[0m[0;34m([0m[0;36m3[0m[0;34m/[0m[0;36m2[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     18[0m     [0mw[0m[0;34m[[0m[0;36m2[0m[0;34m][0m [0;34m=[0m [0mu[0m[0;34m[[0m[0;36m3[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'w' is not defined
+NameError: name 'w' is not defined
+
