@@ -534,7 +534,7 @@ $<span class="math notranslate nohighlight">\( k_{1}=f(x_{n},y_{n})\)</span><spa
 <ul class="simple">
 <li><p>Zadnou úlohu převedeme na soustavu <span class="math notranslate nohighlight">\(N\)</span> diferenciálních rovnic 1. řádu</p></li>
 </ul>
-<div class="alert alert-block alert-warning"><b>Cvičení 10.01: </b> Runge-Kuttovou metodou čtvrtého řádu vyřešte <a href="https://cs.wikipedia.org/wiki/Keplerova_%C3%BAloha">Keplerovu úlohu</a> dle <a href="http://kfe.fjfi.cvut.cz/~vachal/edu/nme/cviceni/09_ODE/DOCS/priklad_ode_soustava.pdf">tohoto</a> zadání.</div><div class="cell docutils container">
+<div class="alert alert-block alert-warning"><b>Cvičení 10.02: </b> Runge-Kuttovou metodou čtvrtého řádu vyřešte <a href="https://cs.wikipedia.org/wiki/Keplerova_%C3%BAloha">Keplerovu úlohu</a> dle <a href="http://kfe.fjfi.cvut.cz/~vachal/edu/nme/cviceni/09_ODE/DOCS/priklad_ode_soustava.pdf">tohoto</a> zadání.</div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># kod</span>
 
@@ -577,7 +577,7 @@ $<span class="math notranslate nohighlight">\( k_{1}=f(x_{n},y_{n})\)</span><spa
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;y&#39;)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Error in callback &lt;function flush_figures at 0x7f5cb29e05e0&gt; (for post_execute):
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Error in callback &lt;function flush_figures at 0x7ff6f92135e0&gt; (for post_execute):
 </pre></div>
 </div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
@@ -758,29 +758,32 @@ $<span class="math notranslate nohighlight">\( k_{1}=f(x_{n},y_{n})\)</span><spa
 <span class="g g-Whitespace">    </span><span class="mi">601</span><span class="s2">                 xys.append(curve([0, *dzeros, 1]))</span>
 
 <span class="nn">~/anaconda3/lib/python3.8/site-packages/matplotlib/bezier.py</span> in <span class="ni">axis_aligned_extrema</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">296</span><span class="s2">         roots = []</span>
-<span class="g g-Whitespace">    </span><span class="mi">297</span><span class="s2">         for i, pi in enumerate(dCj.T):</span>
-<span class="ne">--&gt; </span><span class="mi">298</span><span class="s2">             r = np.roots(pi[::-1])</span>
-<span class="g g-Whitespace">    </span><span class="mi">299</span><span class="s2">             roots.append(r)</span>
-<span class="g g-Whitespace">    </span><span class="mi">300</span><span class="s2">             dims.append(np.full_like(r, i))</span>
+<span class="g g-Whitespace">    </span><span class="mi">291</span><span class="s2">         if n &lt;= 1:</span>
+<span class="g g-Whitespace">    </span><span class="mi">292</span><span class="s2">             return np.array([]), np.array([])</span>
+<span class="ne">--&gt; </span><span class="mi">293</span><span class="s2">         Cj = self.polynomial_coefficients</span>
+<span class="g g-Whitespace">    </span><span class="mi">294</span><span class="s2">         dCj = np.arange(1, n+1)[:, None] * Cj[1:]</span>
+<span class="g g-Whitespace">    </span><span class="mi">295</span><span class="s2">         dims = []</span>
 
-<span class="nn">&lt;__array_function__ internals&gt;</span> in <span class="ni">roots</span><span class="nt">(*args, **kwargs)</span>
+<span class="nn">~/anaconda3/lib/python3.8/site-packages/matplotlib/bezier.py</span> in <span class="ni">polynomial_coefficients</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">269</span><span class="s2">         j = np.arange(n+1)[:, None]</span>
+<span class="g g-Whitespace">    </span><span class="mi">270</span><span class="s2">         i = np.arange(n+1)[None, :]  # _comb is non-zero for i &lt;= j</span>
+<span class="ne">--&gt; </span><span class="mi">271</span><span class="s2">         prefactor = (-1)**(i + j) * _comb(j, i)  # j on axis 0, i on axis 1</span>
+<span class="g g-Whitespace">    </span><span class="mi">272</span><span class="s2">         return _comb(n, j) * prefactor @ P  # j on axis 0, self.dimension on 1</span>
+<span class="g g-Whitespace">    </span><span class="mi">273</span><span class="s2"> </span>
 
-<span class="nn">~/anaconda3/lib/python3.8/site-packages/numpy/lib/polynomial.py</span> in <span class="ni">roots</span><span class="nt">(p)</span>
-<span class="g g-Whitespace">    </span><span class="mi">232</span><span class="s2"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">233</span><span class="s2">     # find non-zero array entries</span>
-<span class="ne">--&gt; </span><span class="mi">234</span><span class="s2">     non_zero = NX.nonzero(NX.ravel(p))[0]</span>
-<span class="g g-Whitespace">    </span><span class="mi">235</span><span class="s2"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">236</span><span class="s2">     # Return an empty array if polynomial is all zeros</span>
+<span class="nn">~/anaconda3/lib/python3.8/site-packages/numpy/lib/function_base.py</span> in <span class="ni">__call__</span><span class="nt">(self, *args, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2111</span><span class="s2">             vargs.extend([kwargs[_n] for _n in names])</span>
+<span class="g g-Whitespace">   </span><span class="mi">2112</span><span class="s2"> </span>
+<span class="ne">-&gt; </span><span class="mi">2113</span><span class="s2">         return self._vectorize_call(func=func, args=vargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2114</span><span class="s2"> </span>
+<span class="g g-Whitespace">   </span><span class="mi">2115</span><span class="s2">     def _get_ufunc_and_otypes(self, func, args):</span>
 
-<span class="nn">&lt;__array_function__ internals&gt;</span> in <span class="ni">ravel</span><span class="nt">(*args, **kwargs)</span>
-
-<span class="nn">~/anaconda3/lib/python3.8/site-packages/numpy/core/fromnumeric.py</span> in <span class="ni">ravel</span><span class="nt">(a, order)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1818</span><span class="s2">         return asarray(a).ravel(order=order)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1819</span><span class="s2">     else:</span>
-<span class="ne">-&gt; </span><span class="mi">1820</span><span class="s2">         return asanyarray(a).ravel(order=order)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1821</span><span class="s2"> </span>
-<span class="g g-Whitespace">   </span><span class="mi">1822</span><span class="s2"> </span>
+<span class="nn">~/anaconda3/lib/python3.8/site-packages/numpy/lib/function_base.py</span> in <span class="ni">_vectorize_call</span><span class="nt">(self, func, args)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2195</span><span class="s2">                       for a in args]</span>
+<span class="g g-Whitespace">   </span><span class="mi">2196</span><span class="s2"> </span>
+<span class="ne">-&gt; </span><span class="mi">2197</span><span class="s2">             outputs = ufunc(*inputs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2198</span><span class="s2"> </span>
+<span class="g g-Whitespace">   </span><span class="mi">2199</span><span class="s2">             if ufunc.nout == 1:</span>
 
 <span class="ne">KeyboardInterrupt</span>: 
 </pre></div>

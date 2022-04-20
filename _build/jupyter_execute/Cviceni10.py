@@ -139,7 +139,7 @@ ax.set_xlabel(r'$t$')
 # ## Řešení soustav diferenciálních rovnic
 # - Zadnou úlohu převedeme na soustavu $N$ diferenciálních rovnic 1. řádu
 
-# <div class="alert alert-block alert-warning"><b>Cvičení 10.01: </b> Runge-Kuttovou metodou čtvrtého řádu vyřešte <a href="https://cs.wikipedia.org/wiki/Keplerova_%C3%BAloha">Keplerovu úlohu</a> dle <a href="http://kfe.fjfi.cvut.cz/~vachal/edu/nme/cviceni/09_ODE/DOCS/priklad_ode_soustava.pdf">tohoto</a> zadání.</div>
+# <div class="alert alert-block alert-warning"><b>Cvičení 10.02: </b> Runge-Kuttovou metodou čtvrtého řádu vyřešte <a href="https://cs.wikipedia.org/wiki/Keplerova_%C3%BAloha">Keplerovu úlohu</a> dle <a href="http://kfe.fjfi.cvut.cz/~vachal/edu/nme/cviceni/09_ODE/DOCS/priklad_ode_soustava.pdf">tohoto</a> zadání.</div>
 
 # In[3]:
 
