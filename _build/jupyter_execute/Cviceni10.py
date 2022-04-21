@@ -105,21 +105,30 @@ ax.plot(tA,exact,linewidth=2) # zobrazime presne reseni
 
 t = 0
 while t<T:
-    # DOPLNTE
     # Eulerova metoda
-    #ax.plot(t,uE, marker="+", color='C1')
-    # uE = uE + ...
-    #
+    ax.plot(t,uE, marker="+", color='C1')
+    # spocteme novou hodnotu promenne uE
+    uE = uE+h*f(t,uE)
+
     # Metoda stredniho bodu
-    #ax.plot(t,uSB, marker="s", color='c')
-    #
+    ax.plot(t,uSB, marker="s", color='c')
+    # spocteme novou hodnotu promenne uSB
+    uSB = uSB+h*f(t+h/2,uSB+h/2*f(t,uSB))
+
     # Heunova metoda
-    #ax.plot(t,uH, marker="x", color='k')
-    #
+    ax.plot(t,uH, marker="x", color='k')
+    # spocteme novou hodnotu promenne uH
+    uH = uH+h/2*(f(t,uH)+f(t+h,uH+h*f(t,uH)))
+
     # Runge-Kutta 4. rad
-    #ax.plot(t,uRK, marker=".", color='r')
-    #    
-    # DOPLNTE
+    ax.plot(t,uRK, marker=".", color='r')
+    # spocteme novou hodnotu promenne uRK
+    k1 = f(t,uRK)
+    k2 = f(t+h/2,uRK+h/2*k1)
+    k3 = f(t+h/2,uRK+h/2*k2)
+    k4 = f(t+h,uRK+h*k3)
+    uRK = uRK + h/6*(k1+2*k2+2*k3+k4)
+    
     t = t + h
     
 ax.set_ylabel(r'$\dfrac{\mathrm{d}N}{\mathrm{d}t}$')
