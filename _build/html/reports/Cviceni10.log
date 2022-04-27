@@ -34,6 +34,6 @@ Here is a preview of the cell contents:
 -------------------
 ['# kod', '', '# metodou Runge-Kuta ctvrteho radu budeme resit soustavu dvou rovnic druheho radu (problem dvou teles)', '', '# konecny cas']
 ...
-['    # u = u + ...', '    # DOPLNTE', '    ', "ax.set_xlabel('x')", "ax.set_ylabel('y')"]
+['    #u = u + ...', '    #DOPLNTE', '    ', "ax.set_xlabel('x')", "ax.set_ylabel('y')"]
 -------------------
 
