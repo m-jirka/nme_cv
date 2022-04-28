@@ -167,12 +167,10 @@ u = np.array([1, -0.3, 0, 0.3])
 
 def f(u):
     w = np.zeros(4)
-    #DOPLNTE
-    #w[0] = 
-    #w[1] = 
-    #w[2] = 
-    #w[3] = 
-    #DOPLNTE    
+    w[0] = u[1]
+    w[1] = -u[0]/(u[0]**2+u[2]**2)**(3/2)
+    w[2] = u[3]
+    w[3] = -u[2]/(u[0]**2+u[2]**2)**(3/2)   
     return w
 
 fig, ax = plt.subplots(figsize=(15,4.5))
@@ -184,9 +182,11 @@ while t<T:
     h = 0.005 # delka kroku
     t = t + h
     ax.scatter(u[0], u[2], marker=".")
-    #DOPLNTE
-    #u = u + ...
-    #DOPLNTE
+    k1 = f(u)    
+    k2 = f(u+h/2*k1)
+    k3 = f(u+h/2*k2)
+    k4 = f(u+h*k3)
+    u=u+h/6*(k1+2*k2+2*k3+k4)
     
 ax.set_xlabel('x')
 ax.set_ylabel('y')
